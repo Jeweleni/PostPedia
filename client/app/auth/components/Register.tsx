@@ -12,6 +12,17 @@ const Register = () => {
     confirmPassword: "",
   });
 
+  const dropList = [
+    {
+      id: 1,
+      name: "Writer",
+    },
+    {
+      id: 2,
+      name: "Reader",
+    },
+  ];
+
   const [password, setPassword] = React.useState(true);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,17 +75,7 @@ const Register = () => {
           </label>
         </div>
         {/* Joining as */}
-        <label htmlFor="email" className="flex flex-col text-sm font-[500]">
-          Email address
-          <input
-            type="email"
-            id="email"
-            className="outline-0 border border-gray-400 border-opacity-40 rounded-lg h-[50px] px-3 mt-2 shadow-sm shadow-gray-300"
-            value={register.email}
-            onChange={handleChange}
-            placeholder="johndoe@email.com"
-          />
-        </label>
+        
         {/* email */}
         <label htmlFor="email" className="flex flex-col text-sm font-[500]">
           Email address
