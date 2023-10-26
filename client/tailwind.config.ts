@@ -1,33 +1,20 @@
-import type { Config } from 'tailwindcss';
+import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
-      colors: {
-        // Define your custom color palette here
-        purple: {
-          50: '#f7f3ff',
-          100: '#e9d8ff',
-          200: '#d6bcff',
-          300: '#c399ff',
-          400: '#a274ff',
-          500: '#9147ff', // Brand color
-          600: '#7f2eea',
-          700: '#6a24d8',
-          800: '#571dc3',
-          900: '#4713a5',
-        },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
-      // You can add more custom styles here as needed
     },
   },
   plugins: [],
-};
-
-export default config;
-
+}
+export default config
