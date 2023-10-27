@@ -23,7 +23,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full flex justify-center items-center flex-col gap-10">
+    <div className="w-full h-full flex justify-center items-center flex-col gap-10">
       <h1 className="text-2xl font-semibold">Welcome back</h1>
       <form onSubmit={handleFormSubmit} className="flex flex-col gap-7 w-full">
         {/* email */}
