@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
-import { BiShow, BiHide } from "react-icons/bi";
+import { BiShow } from "react-icons/bi";
+import { PiEyeClosedBold } from "react-icons/pi";
 
 type Props = {
   login: {
@@ -68,7 +69,7 @@ const Login = ({ login, setLogin, handleLogin }: Props) => {
               className="cursor-pointer text-primary text-2xl absolute top-[67%] right-0 -translate-x-1/2 -translate-y-1/2"
             />
           ) : (
-            <BiHide
+            <PiEyeClosedBold
               onClick={toggleVisible}
               className="cursor-pointer text-primary text-2xl absolute top-[67%] right-0 -translate-x-1/2 -translate-y-1/2"
             />
