@@ -3,15 +3,34 @@ import React from "react";
 import { BiShow, BiHide } from "react-icons/bi";
 import { FcGoogle } from "react-icons/fc";
 
-const Register = ({ setOtp }: any) => {
-  const [register, setRegister] = React.useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-  const [selected, setSelected] = React.useState<any>("");
+type Props = {
+  setOtp: React.Dispatch<React.SetStateAction<boolean>>;
+  setRegister: React.Dispatch<
+    React.SetStateAction<{
+      firstname: string;
+      lastname: string;
+      email: string;
+      password: string;
+      confirmPassword: string;
+    }>
+  >;
+  register: {
+    firstname: string;
+    lastname: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+  };
+  setSelected: React.Dispatch<React.SetStateAction<any>>;
+  handleRegister: (e: React.FormEvent<HTMLFormElement>) => void;
+};
+
+const Register = ({
+  handleRegister,
+  setRegister,
+  register,
+  setSelected,
+}: Props) => {
   const [password, setPassword] = React.useState(true);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,17 +45,12 @@ const Register = ({ setOtp }: any) => {
     setPassword(!password);
   };
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setOtp((p: any) => !p);
-  };
-
   return (
     <div className="w-full h-full flex justify-center items-center flex-col">
       <h1 className="text-lg font-semibold mb-5 text-center">
         Register as a Writer/Reader
       </h1>
-      <form onSubmit={handleFormSubmit} className="flex flex-col gap-6 w-full">
+      <form onSubmit={handleRegister} className="flex flex-col gap-6 w-full">
         <div className="flex justify-between items-center">
           {/* First name */}
           <label

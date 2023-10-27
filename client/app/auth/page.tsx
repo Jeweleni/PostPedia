@@ -1,16 +1,37 @@
 "use client";
-import React from "react";
+import React, { use } from "react";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import main from "../../public/assets/auth.jpg";
 import Image from "next/image";
 import Slider from "./components/Slider";
 import Otp from "./components/Otp";
+import Popup from "./components/Popup";
+import { useRouter } from "next/navigation";
 
 const Auth = () => {
-  const [auth, setAuth] = React.useState("login");
+  const router = useRouter();
   const [toggle, setToggle] = React.useState(true);
   const [otp, setOtp] = React.useState(false);
+  const [popup, setPopup] = React.useState(false);
+
+  const [auth, setAuth] = React.useState("login");
+  const [otpCode, setOtpCode] = React.useState("");
+
+  const [login, setLogin] = React.useState({
+    email: "",
+    password: "",
+  });
+
+  const [register, setRegister] = React.useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [selected, setSelected] = React.useState<any>("");
 
   const toggleAuth = () => {
     if (auth === "login") {
@@ -22,8 +43,34 @@ const Auth = () => {
     }
   };
 
+  const onChange = (value: any) => setOtpCode(value);
+
+  const handleOtp = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setPopup(true);
+    console.log(otpCode);
+  };
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(login);
+  };
+  const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setOtp((p: any) => !p);
+    const registerInfo = { ...register, selected };
+    console.log(registerInfo);
+  };
+
   return (
-    <div className="mx-auto md:h-[calc(100vh-80px)] flex justify-between items-center">
+    <div className="mx-auto md:h-[calc(100vh-80px)] flex justify-between items-center relative">
+      {popup && (
+        <Popup
+          handlePopup={() => {
+            router.push("/");
+            setPopup(false);
+          }}
+        />
+      )}
       <div className="w-[60%] h-full relative hidden md:block">
         <Image
           priority={true}
@@ -49,12 +96,27 @@ const Auth = () => {
           )}
           {!otp ? (
             auth === "login" ? (
-              <Login />
+              <Login
+                login={login}
+                setLogin={setLogin}
+                handleLogin={handleLogin}
+              />
             ) : (
-              <Register setOtp={setOtp} />
+              <Register
+                register={register}
+                setRegister={setRegister}
+                setSelected={setSelected}
+                setOtp={setOtp}
+                handleRegister={handleRegister}
+              />
             )
           ) : (
-            <Otp />
+            <Otp
+              value={otpCode}
+              valueLength={6}
+              onChange={onChange}
+              handleOtp={handleOtp}
+            />
           )}
         </div>
       </div>
