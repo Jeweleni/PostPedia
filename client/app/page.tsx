@@ -1,5 +1,9 @@
 import heroBackground from "../public/assets/hero-background.png";
 import aboutImg from "../public/assets/about-img.png";
+import circle from "../public/assets/circle.svg"
+import analytics from "../public/assets/analytics.svg";
+import interaction from '../public/assets/interaction.svg';
+import content from '../public/assets/content.svg';
 import Image from 'next/image';
 
 export default function Home() {
@@ -33,7 +37,7 @@ export default function Home() {
       </div>
     </section>
     {/* ABOUT SECTION */}
-    <section className="flex flex-col md:flex-row justify-between items-center w-full md:w-[90%] mt-8 md:my-24 mx-auto px-4 sm:px-8 lg:px-12">
+    <section className="flex flex-col md:flex-row justify-between items-center w-full md:w-[95%] mt-8 md:my-24 mx-auto px-4 sm:px-8 lg:px-12">
       <div className="w-full md:w-1/2 mb-6 md:mb-0 md:mr-8 mx-4 md:mx-0">
         <h2 className="text-black font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-8 md:leading-10 lg:leading-12 xl:leading-14 mb-4 md:mb-6">
           About PostPedia
@@ -54,7 +58,54 @@ export default function Home() {
         />
       </div>
     </section>
+    {/* WHY JOIN US SECTION */}
+    <section className="my-[50px]">
+      <div className="text-center w-[75%] mx-auto mt-10">
+        <h2 className="text-black font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-8 md:leading-10 lg:leading-12 xl:leading-14 mb-4 md:mb-6">
+          Why you should join PostPedia
+        </h2>
+        <p className="text-black text-base md:text-lg lg:text-xl xl:text-2xl leading-6 md:leading-7 lg:leading-8 xl:leading-9 text-left">
+          Our goal is to make writers and readers see our platform as their next heaven for blogging, ensuring ease in interactions,
+          connecting with like-minded peers, have access to favorite content based on interests and able to communicate your great ideas with people
+        </p>
+      
+        <div className="text-left flex justify-between items-center mx-auto">
+          <div className="w-72 h-80 p-4 border border-gray-300 rounded-lg my-[30px]">
+            <Image 
+              src={ analytics }
+              alt='analytics image'
+            />
+            <h3 className="text-black text-base md:text-lg font-medium my-[12px]">Analytics</h3>
+            <p className="text-[#626262] text-base font-normal leading-6">
+              Analytics to track the number of views, likes and comment and 
+              also analyze the performance of your articles over a period of time
+            </p>
+          </div>
 
+          <div className="w-72 h-80 p-4 border border-gray-300 rounded-lg my-[30px]">
+            <Image 
+              src={ interaction }
+              alt='analytics image'
+            />
+            <h3 className="text-black text-base md:text-lg font-medium my-[12px]">Social interactions</h3>
+            <p className="text-[#626262] text-base font-normal leading-6">
+              Users on the platform can interact with posts they like, comment and engage in discussions
+            </p>
+          </div>
+
+          <div className="w-72 h-80 p-4 border border-gray-300 rounded-lg my-[30px]">
+            <Image 
+              src={ content }
+              alt='analytics image'
+            />
+            <h3 className="text-black text-base md:text-lg font-medium my-[12px]">Content creation</h3>
+            <p className="text-[#626262] text-base font-normal leading-6">
+              Write nice and appealing with our in-built markdown, a rich text editor
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
   )
 }
