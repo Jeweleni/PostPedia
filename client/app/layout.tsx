@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex justify-between items-center border border-red-500">
+        <div className="h-[80px] flex justify-between items-center border border-red-500">
           <Link className="p-2" href="/">
             Home
           </Link>
@@ -38,7 +38,7 @@ export default function RootLayout({
             Analytics
           </Link>
         </div>
-        <div className="h-screen">{children}</div>
+        <div className="">{children}</div>
       </body>
     </html>
   );
