@@ -11,3 +11,36 @@
 body {
   font-family: "DM Sans", sans-serif;
 }
+/* CSS (styles.css) */
+/* Base styles */
+/* You can adjust these styles based on your design */
+
+#for-you,
+#featured,
+#recent {
+  padding: 20px;
+}
+
+/* Responsive styles */
+/* These styles are applied based on screen size */
+
+/* Small screens (e.g., mobile) */
+@media screen and (max-width: 640px) {
+  #for-you, #featured, #recent {
+    width: 100%; /* Full width for small screens */
+  }
+}
+
+/* Medium screens (e.g., tablet) */
+@media screen and (min-width: 641px) and (max-width: 1024px) {
+  #for-you, #featured, #recent {
+    width: 50%; /* 50% width for medium screens */
+  }
+}
+
+/* Larger screens (e.g., desktop) */
+@media screen and (min-width: 1025px) {
+  #for-you, #featured, #recent {
+    width: 33.33%; /* 33.33% width for larger screens */
+  }
+}

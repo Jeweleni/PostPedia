@@ -37,6 +37,9 @@ export default function RootLayout({
           <Link className="p-2" href="/feed/analytics">
             Analytics
           </Link>
+          <Link className="p-2" href="/navigation">
+            Navbar
+          </Link>
         </div>
         <div className="">{children}</div>
       </body>
