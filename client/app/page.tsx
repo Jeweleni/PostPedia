@@ -30,8 +30,9 @@ export default function Home() {
               Unleash the Power of Words, Connect with Like-minded Readers and Writers
             </p>
             <button
-              className="text-white font-body font-bold text-base px-4 py-2 rounded-lg 
-              bg-purple-600 hover:bg-purple-700 focus:ring focus:ring-purple-200 focus:outline-none h-[56px] w-[157px] mt-[36px]"
+              className="text-white font-bold font-body text-base px-4 py-2 rounded-lg 
+              bg-primary hover:bg-transparent hover:border border-white
+               focus:outline-none w-[157px] h-[56px] transition duration-500 ease-in-out mt-[36px]"
             >
               Get Started
             </button>
@@ -137,8 +138,8 @@ export default function Home() {
             </h3>
             <button
               className="text-white font-bold font-body text-base px-4 py-2 rounded-lg 
-             bg-purple-600 hover:bg-purple-700 focus:ring focus:ring-purple-200 
-              focus:outline-none w-[157px] h-[56px]"
+             bg-primary hover:bg-transparent hover:text-primary hover:border border-primary
+              focus:outline-none w-[157px] h-[56px] transition duration-500 ease-in-out"
             >
               Join PostPedia
             </button>
@@ -164,9 +165,9 @@ export default function Home() {
               connect with people of same interests and goals  
             </p>
             <button
-              className="text-white font-body font-bold text-base px-4 py-2 rounded-lg 
-             bg-purple-600 hover:bg-purple-700 focus:ring focus:ring-purple-200 
-              focus:outline-none w-[157px] h-[56px] mt-[32px]"
+              className="text-white font-bold font-body text-base px-4 py-2 rounded-lg 
+             bg-primary hover:bg-transparent hover:text-primary hover:border border-primary
+              focus:outline-none w-[157px] h-[56px] transition duration-500 ease-in-out mt-[32px]"
             >
               Get started
             </button>
@@ -175,24 +176,24 @@ export default function Home() {
       </section>
       <footer className="bg-rgba-50 py-[50px]">
         <div className="container mx-auto flex flex-col md:flex-row items-start justify-between px-4">
-          <h2 className="text-[#543EE0] font-body text-4xl font-bold leading-12 my-[20px]">POSTPEDIA</h2>
+          <h2 className="text-primary font-body text-4xl font-bold leading-12 my-[20px]">POSTPEDIA</h2>
           <div>
             <h3 className="text-black font-body text-xl font-medium leading-9 mb-[15px]">Explore</h3>
             <a href="#" 
               className="text-black font-body text-base font-normal leading-6 block mb-[16px] 
-              hover:text-gray-400 transition duration-300"
+              hover:text-primary transition duration-300"
             >
               Community
             </a>
             <a href="#" 
               className="text-black font-body text-base font-normal leading-6 block mb-[16px]
-              hover:text-gray-400 transition duration-300"
+              hover:text-primary transition duration-300"
             >
               Trending blogs
             </a>
             <a href="#" 
               className="text-black font-body text-base font-normal leading-6 block mb-[16px] 
-              hover:text-gray-400 transition duration-300"
+              hover:text-primary transition duration-300"
             >
               PostPedia for teams
             </a>
@@ -202,19 +203,19 @@ export default function Home() {
             <h3 className="text-black font-body text-xl font-medium leading-9 mb-[15px]">Support</h3>
             <a href="#" 
               className="text-black font-body text-base font-normal leading-6 block mb-[16px]
-              hover:text-gray-400 transition duration-300"
+              hover:text-primary transition duration-300"
             >
               Support docs
             </a>
             <a href="#" 
               className="text-black font-body text-base font-normal leading-6 block mb-[16px]
-             hover:text-gray-400 transition duration-300"
+             hover:text-primary transition duration-300"
             >
               Join slack
             </a>
             <a href="#" 
               className="text-black font-body text-base font-normal leading-6 block mb-[16px]
-             hover:text-gray-400 transition duration-300"
+             hover:text-primary transition duration-300"
             >
               Contact
             </a>
@@ -224,13 +225,13 @@ export default function Home() {
             <h3 className="text-black font-body text-xl font-medium leading-9 mb-[15px]">Official blog</h3>
             <a href="#" 
               className="text-black font-body text-base font-normal leading-6 block mb-[16px]
-             hover:text-gray-400 transition duration-300"
+             hover:text-primary transition duration-300"
             >
               Official blog
             </a>
             <a href="#" 
               className="text-black font-body text-base font-normal leading-6 block mb-[16px] 
-              hover:text-gray-400 transition duration-300"
+              hover:text-primary transition duration-300"
             >
               Engineering blog
             </a>
