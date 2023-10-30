@@ -4,6 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .main-btn {
+    @apply text-white font-bold font-body text-base px-4 py-2 rounded-lg 
+    bg-primary hover:bg-transparent hover:border border-white
+     focus:outline-none w-[157px] h-[56px] transition duration-500 ease-in-out mt-[36px];
+  }
+
+  .secondary-btn {
+    @apply text-white font-bold font-body text-base px-4 py-2 rounded-lg 
+             bg-primary hover:bg-transparent hover:text-primary hover:border border-primary
+              focus:outline-none w-[157px] h-[56px] transition duration-500 ease-in-out;
+  }
+}
+
 :root {
   font-family: "DM Sans", sans-serif;
 }
@@ -26,21 +40,27 @@ body {
 
 /* Small screens (e.g., mobile) */
 @media screen and (max-width: 640px) {
-  #for-you, #featured, #recent {
+  #for-you,
+  #featured,
+  #recent {
     width: 100%; /* Full width for small screens */
   }
 }
 
 /* Medium screens (e.g., tablet) */
 @media screen and (min-width: 641px) and (max-width: 1024px) {
-  #for-you, #featured, #recent {
+  #for-you,
+  #featured,
+  #recent {
     width: 50%; /* 50% width for medium screens */
   }
 }
 
 /* Larger screens (e.g., desktop) */
 @media screen and (min-width: 1025px) {
-  #for-you, #featured, #recent {
+  #for-you,
+  #featured,
+  #recent {
     width: 33.33%; /* 33.33% width for larger screens */
   }
 }
