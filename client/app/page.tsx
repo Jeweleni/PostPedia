@@ -38,7 +38,7 @@ export default function Home() {
         </div>
       </section>
       {/* ABOUT SECTION */}
-      <section className="flex flex-col md:flex-row justify-between items-center w-full md:w-[95%] mt-8 md:my-24 mx-auto px-4 sm:px-8 lg:px-12">
+      <section className="flex flex-col md:flex-row justify-between items-start w-full md:w-[95%] mt-8 md:my-24 mx-auto px-4 sm:px-8 lg:px-12">
         <div className="w-full md:w-1/2 mb-6 md:mb-0 md:mr-8 mx-4 md:mx-0">
           <h2 className="text-black font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-8 md:leading-10 lg:leading-12 xl:leading-14 mb-4 md:mb-6">
             About PostPedia
@@ -174,23 +174,23 @@ export default function Home() {
         <div className="flex justify-between w-[80%] mx-auto">
           <h2>PostPedia</h2>
           <div>
-            <h3>Explore</h3>
-            <p>Community</p>
-            <p>Trending blogs</p>
-            <p>PostPedia for teens</p>
+            <h3 className="text-black font-body text-xl font-medium leading-9 mb-[28px]">Explore</h3>
+            <p className="text-black font-body text-base font-normal leading-6 mb-[16px]">Community</p>
+            <p className="text-black font-body text-base font-normal leading-6 mb-[16px]">Trending blogs</p>
+            <p className="text-black font-body text-base font-normal leading-6 mb-[16px]">PostPedia for teams</p>
           </div>
 
           <div>
-            <h3>Support</h3>
-            <p>Support doc</p>
-            <p>Join slack</p>
-            <p>Contact</p>
+            <h3 className="text-black font-body text-xl font-medium leading-9 mb-[28px]">Support</h3>
+            <p className="text-black font-body text-base font-normal leading-6 mb-[16px]">Support docs</p>
+            <p className="text-black font-body text-base font-normal leading-6 mb-[16px]">Join slack</p>
+            <p className="text-black font-body text-base font-normal leading-6 mb-[16px]">Contact</p>
           </div>
 
           <div>
-            <h3>Official blog</h3>
-            <p>Official blog</p>
-            <p>Engineering blog</p>
+            <h3 className="text-black font-body text-xl font-medium leading-9 mb-[28px]">Official blog</h3>
+            <p className="text-black font-body text-base font-normal leading-6 mb-[16px]">Official blog</p>
+            <p className="text-black font-body text-base font-normal leading-6 mb-[16px]">Engineering blog</p>
           </div>
         </div>
       </footer>
