@@ -14,6 +14,9 @@ const config: Config = {
       backgroundColor: {
         'rgba-50': 'rgba(255, 237, 204, 0.50)',
       },
+      fontFamily: {
+        'body': ['DM Sans', 'sans'],
+      },
     },
   },
   plugins: [],
