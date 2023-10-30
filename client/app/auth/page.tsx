@@ -62,7 +62,7 @@ const Auth = () => {
   };
 
   return (
-    <div className="mx-auto md:h-[calc(100vh-80px)] flex justify-between items-center relative">
+    <div className="mx-auto h-screen flex items-center relative">
       {popup && (
         <Popup
           handlePopup={() => {
@@ -71,7 +71,7 @@ const Auth = () => {
           }}
         />
       )}
-      <div className="w-[60%] h-full relative hidden md:block">
+      <div className="w-[60%] h-full relative hidden md:block flex-1">
         <Image
           priority={true}
           width={0}
@@ -89,19 +89,17 @@ const Auth = () => {
           </p>
         </div>
       </div>
-      <div className="w-full md:w-[40%] h-full flex justify-center items-start">
-        <div className="w-full flex justify-center items-center flex-col h-full p-10 md:max-w-[500px]">
-          {!otp && (
-            <Slider auth={auth} toggleAuth={toggleAuth} toggle={toggle} />
-          )}
-          {!otp ? (
-            auth === "login" ? (
-              <Login
-                login={login}
-                setLogin={setLogin}
-                handleLogin={handleLogin}
-              />
-            ) : (
+      <div className="w-full h-full flex justify-center items-start flex-col flex-1 gap-10 p-10 md:max-w-[500px] border ">
+        {!otp && <Slider auth={auth} toggleAuth={toggleAuth} toggle={toggle} />}
+        {!otp ? (
+          auth === "login" ? (
+            <Login
+              login={login}
+              setLogin={setLogin}
+              handleLogin={handleLogin}
+            />
+          ) : (
+            <>
               <Register
                 register={register}
                 setRegister={setRegister}
@@ -109,16 +107,16 @@ const Auth = () => {
                 setOtp={setOtp}
                 handleRegister={handleRegister}
               />
-            )
-          ) : (
-            <Otp
-              value={otpCode}
-              valueLength={6}
-              onChange={onChange}
-              handleOtp={handleOtp}
-            />
-          )}
-        </div>
+            </>
+          )
+        ) : (
+          <Otp
+            value={otpCode}
+            valueLength={6}
+            onChange={onChange}
+            handleOtp={handleOtp}
+          />
+        )}
       </div>
     </div>
   );

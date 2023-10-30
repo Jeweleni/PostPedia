@@ -75,7 +75,7 @@ const Login = ({ login, setLogin, handleLogin }: Props) => {
             />
           )}
         </label>
-        <button className="h-[50px] bg-primary rounded-lg text-white border-primary border-2  hover:bg-white hover:text-primary hover:border-primary hover:border-2 duration-200 transition-all hover:font-semibold">
+        <button className="main-btn w-full border-primary hover:text-primary">
           Log in
         </button>
       </form>

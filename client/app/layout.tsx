@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import Navbar from "./(components)/navigation/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,30 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="h-[80px] flex justify-between items-center border border-red-500">
-          <Link className="p-2" href="/">
-            Home
-          </Link>
-          <Link className="p-2" href="/auth">
-            Login
-          </Link>
-          <Link className="p-2" href="/feed">
-            Feed
-          </Link>
-          <Link className="p-2" href="/user">
-            User profile
-          </Link>
-          <Link className="p-2" href="/user/posts">
-            Post
-          </Link>
-          <Link className="p-2" href="/feed/analytics">
-            Analytics
-          </Link>
-          <Link className="p-2" href="/navigation">
-            Navbar
-          </Link>
+        <div className="w-full">
+          {children}
         </div>
-        <div className="">{children}</div>
       </body>
     </html>
   );

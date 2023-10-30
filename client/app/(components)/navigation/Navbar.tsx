@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="w-full h-auto p-2 border border-stone-300 justify-between items-center gap-60 inline-flex">
+    <nav className="w-full h-auto p-2 justify-between items-center inline-flex">
       <div className="text-primary text-4xl font-bold font-['DM Sans'] leading-[72px]">
         <Link href="/">POSTPEDIA</Link>
       </div>
