@@ -30,7 +30,8 @@ export default function Home() {
               Unleash the Power of Words, Connect with Like-minded Readers and Writers
             </p>
             <button
-              className="text-white font-body font-bold text-base px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 focus:ring focus:ring-purple-200 focus:outline-none w-[160px] mt-[36px]"
+              className="text-white font-body font-bold text-base px-4 py-2 rounded-lg 
+              bg-purple-600 hover:bg-purple-700 focus:ring focus:ring-purple-200 focus:outline-none h-[56px] w-[157px] mt-[36px]"
             >
               Get Started
             </button>
@@ -137,7 +138,7 @@ export default function Home() {
             <button
               className="text-white font-bold font-body text-base px-4 py-2 rounded-lg 
              bg-purple-600 hover:bg-purple-700 focus:ring focus:ring-purple-200 
-              focus:outline-none w-[160px]"
+              focus:outline-none w-[157px] h-[56px]"
             >
               Join PostPedia
             </button>
@@ -165,14 +166,14 @@ export default function Home() {
             <button
               className="text-white font-body font-bold text-base px-4 py-2 rounded-lg 
              bg-purple-600 hover:bg-purple-700 focus:ring focus:ring-purple-200 
-              focus:outline-none w-[160px] mt-[32px]"
+              focus:outline-none w-[157px] h-[56px] mt-[32px]"
             >
               Get started
             </button>
           </div>
         </div>
       </section>
-      <footer className="bg-rgba-50 pt-[30px] pb-[80px]">
+      <footer className="bg-rgba-50 py-[50px]">
         <div className="container mx-auto flex flex-col md:flex-row items-start justify-between px-4">
           <h2 className="text-[#543EE0] font-body text-4xl font-bold leading-12 my-[20px]">POSTPEDIA</h2>
           <div>
