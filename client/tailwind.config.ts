@@ -11,6 +11,12 @@ const config: Config = {
       colors: {
         primary: "#1E3231",
       },
+      backgroundColor: {
+        'rgba-50': 'rgba(255, 237, 204, 0.50)',
+      },
+      fontFamily: {
+        'body': ['DM Sans', 'sans'],
+      },
     },
   },
   plugins: [],
