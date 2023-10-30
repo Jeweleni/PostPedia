@@ -11,17 +11,17 @@ import { AiOutlineBell, AiOutlineTeam } from "react-icons/ai";
 import { HiArrowTrendingUp } from "react-icons/hi2";
 import { BiUser } from "react-icons/bi";
 
-interface SidebarProps {
-    isSidebarOpen: boolean;
-    setIsSidebarOpen: (isOpen: boolean) => void;
-  }
+// interface SidebarProps {
+//     isSidebarOpen: boolean;
+//     setIsSidebarOpen: (isOpen: boolean) => void;
+//   }
 
-  const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, setIsSidebarOpen }) => {
- // State for sidebar open/close
+const Sidebar = () => {
+  // State for sidebar open/close
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+  // const toggleSidebar = () => {
+  //   setIsSidebarOpen(!isSidebarOpen);
+  // };
   const router = useRouter();
 
   console.log(router);
@@ -35,7 +35,7 @@ interface SidebarProps {
 
   return (
     <>
-      <div className={`w-[268px] relative border p-3 ${isSidebarOpen ? "hidden" : ""}`}>
+      <div className={`w-[268px] relative border p-3`}>
         <div className="text-primary text-[32px] font-medium font-['DM Sans'] mb-2 text-left p-3">
           POSTPEDIA
         </div>

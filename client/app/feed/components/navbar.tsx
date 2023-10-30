@@ -5,17 +5,18 @@ import PropTypes from 'prop-types';
 import userprofile from "../../../public/assets/userprofile.png";
 import { AiOutlineBell, AiOutlineSearch } from "react-icons/ai";
 
-interface NavbarProps {
-    isSidebarOpen: boolean; // Add this prop
-  }
+// interface NavbarProps {
+//     isSidebarOpen: boolean; // Add this prop
+//   }
   
-  const Navbar: React.FC<NavbarProps> = ({ isSidebarOpen }) => {
+  const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState("");
   
     const handleSearch = () => {
       // Handle the search action based on the 'searchQuery' state
       console.log("Searching for:", searchQuery);
     };
+    const isSidebarOpen = false;
   
     return (
       <div className="w-full h-fit self-stretch p-2 border border-stone-300 justify-end items-start gap-[189px] inline-flex">
