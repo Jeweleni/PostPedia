@@ -144,7 +144,7 @@ export default function Home() {
         </div>
       </section>
       {/* REVIEW SECTION */}
-      <section >
+      <section>
         <div className="flex justify-between items-start w-[68%] mx-auto py-[96px]">
           <div>
             <Image
@@ -170,6 +170,30 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <footer className="bg-rgba-50 pt-[40px] pb-[80px]">
+        <div className="flex justify-between w-[80%] mx-auto">
+          <h2>PostPedia</h2>
+          <div>
+            <h3>Explore</h3>
+            <p>Community</p>
+            <p>Trending blogs</p>
+            <p>PostPedia for teens</p>
+          </div>
+
+          <div>
+            <h3>Support</h3>
+            <p>Support doc</p>
+            <p>Join slack</p>
+            <p>Contact</p>
+          </div>
+
+          <div>
+            <h3>Official blog</h3>
+            <p>Official blog</p>
+            <p>Engineering blog</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
