@@ -1,31 +1,43 @@
 "use client";
 import React from "react";
-import { BiShow, BiHide } from "react-icons/bi";
+import { BiShow } from "react-icons/bi";
+import { PiEyeClosedBold } from "react-icons/pi";
 
-const Login = () => {
-  const [login, setLogin] = React.useState({
-    email: "",
-    password: "",
-  });
+type Props = {
+  login: {
+    email: string;
+    password: string;
+  };
+  setLogin: React.Dispatch<
+    React.SetStateAction<{
+      email: string;
+      password: string;
+    }>
+  >;
+  handleLogin: (e: React.FormEvent<HTMLFormElement>) => void;
+};
 
+const Login = ({ login, setLogin, handleLogin }: Props) => {
   const [password, setPassword] = React.useState(true);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLogin({ ...login, [e.target.id]: e.target.value });
+    setLogin((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }));
   };
 
   const toggleVisible = () => {
     setPassword(!password);
   };
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
-
   return (
-    <div className="w-full flex justify-center items-center flex-col gap-10">
+    <div className="w-full h-full flex justify-center items-center flex-col gap-10">
       <h1 className="text-2xl font-semibold">Welcome back</h1>
-      <form onSubmit={handleFormSubmit} className="flex flex-col gap-7 w-full">
+      <form
+        onSubmit={(e) => handleLogin(e)}
+        className="flex flex-col gap-7 w-full"
+      >
         {/* email */}
         <label htmlFor="email" className="flex flex-col text-sm font-[500]">
           Email address
@@ -57,7 +69,7 @@ const Login = () => {
               className="cursor-pointer text-primary text-2xl absolute top-[67%] right-0 -translate-x-1/2 -translate-y-1/2"
             />
           ) : (
-            <BiHide
+            <PiEyeClosedBold
               onClick={toggleVisible}
               className="cursor-pointer text-primary text-2xl absolute top-[67%] right-0 -translate-x-1/2 -translate-y-1/2"
             />
