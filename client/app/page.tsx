@@ -6,12 +6,12 @@ import analytics from "../public/assets/analytics.svg";
 import interaction from "../public/assets/interaction.svg";
 import content from "../public/assets/content.svg";
 import Image from "next/image";
-import Navbar from "./(components)/navigation/Navbar";
+import { Header } from "./(components)/navigation/Header";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <Header />
       <div className="transition duration-300 ease-in-out">
         {/* HERO SECTION */}
         <section className="relative w-full h-[800px] ">
