@@ -12,9 +12,11 @@
   }
 
   .secondary-btn {
-    @apply text-white font-bold font-body text-base px-4 py-2 rounded-lg 
-             bg-primary hover:bg-transparent hover:text-primary hover:border border-primary
-              focus:outline-none w-[157px] h-[56px] transition duration-500 ease-in-out;
+    @apply text-white font-bold font-body text-base px-4 py-2 rounded-lg bg-primary hover:bg-transparent hover:text-primary hover:border border-primary focus:outline-none w-[157px] h-[56px] transition duration-500 ease-in-out;
+  }
+
+  .links {
+    @apply text-lg cursor-pointer font-bold tracking-wider transition-all duration-200 text-white md:text-primary;
   }
 }
 

@@ -62,7 +62,7 @@ const Auth = () => {
   };
 
   return (
-    <div className="mx-auto h-screen flex items-center relative">
+    <div className="mx-auto md:h-screen flex items-center relative">
       {popup && (
         <Popup
           handlePopup={() => {
@@ -89,8 +89,12 @@ const Auth = () => {
           </p>
         </div>
       </div>
-      <div className="w-full h-full flex justify-center items-start flex-col flex-1 gap-10 p-10 md:max-w-[500px] border ">
-        {!otp && <Slider auth={auth} toggleAuth={toggleAuth} toggle={toggle} />}
+      <div className="w-full min-h-full flex justify-start items-center flex-col flex-1 gap-10 p-10 md:max-w-[500px] my-10">
+        {!otp && (
+          <>
+            <Slider auth={auth} toggleAuth={toggleAuth} toggle={toggle} />
+          </>
+        )}
         {!otp ? (
           auth === "login" ? (
             <Login
