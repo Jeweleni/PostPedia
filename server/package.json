@@ -1,12 +1,42 @@
 {
-  "name": "server",
+  "name": "vines",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "writersvine backend",
+  "main": "src/app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/app.ts",
+    "build": "tsc -p ."
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Erick Barasa",
+  "license": "ISC",
+  "dependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
+    "@prisma/client": "^5.5.2",
+    "@types/bcrypt": "^5.0.1",
+    "@types/passport-google-oauth20": "^2.0.13",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.2",
+    "passport": "^0.6.0",
+    "passport-google-oauth": "^2.0.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-jwt": "^4.0.1",
+    "swagger-ui-express": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.15",
+    "@types/express": "^4.17.20",
+    "@types/express-session": "^1.17.9",
+    "@types/jsonwebtoken": "^9.0.4",
+    "@types/passport": "^1.0.14",
+    "@types/passport-jwt": "^3.0.12",
+    "nodemon": "^3.0.1",
+    "prisma": "^5.5.2",
+    "typescript": "^5.2.2"
+  }
 }
