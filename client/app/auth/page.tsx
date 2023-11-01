@@ -89,7 +89,7 @@ const Auth = () => {
           </p>
         </div>
       </div>
-      <div className="flex-5 min-h-full flex justify-start items-center flex-col gap-5 px-10 pt-5 my-10 min-w-[550px]">
+      <div className="flex-5 min-h-full flex md:justify-start md:items-center justify-center items-center flex-col gap-5 px-10 pt-5 my-10 md:min-w-[550px] md:w-auto w-full">
         {!otp && (
           <>
             <Slider auth={auth} toggleAuth={toggleAuth} toggle={toggle} />
