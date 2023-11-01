@@ -29,43 +29,31 @@ model File {
   id        String   @id
   name      String
   url       String
-  type      FileType
-  orderId   String?
+  postId    String?
   createdAt DateTime @default(now())
   updatedAt DateTime
-  Order     Order?   @relation(fields: [orderId], references: [id])
+  Post      Post?    @relation(fields: [postId], references: [id])
 
-  @@index([orderId], map: "orderId")
+  @@index([postId], map: "postId")
 }
 
-model Order {
-  id                            String          @id
-  orderType                     Order_type
-  writerId                      String?
-  name                          String
-  topic                         String
-  description                   String
-  subject                       Subject
-  pages                         Int
-  words                         Int?
-  createdAt                     DateTime        @default(now())
-  updatedAt                     DateTime
-  clientDeadline                DateTime
-  writerDeadline                DateTime?
-  price                         Float
-  educationLevel                Education_level
-  status                        Order_status    @default(NEW)
-  writerRating                  Int?
-  userId                        String?
-  assignedById                  String?
-  clientId                      String?
-  File                          File[]
-  User_Order_assignedByIdToUser User?           @relation("Order_assignedByIdToUser", fields: [assignedById], references: [id])
-  User_Order_clientIdToUser     User?           @relation("Order_clientIdToUser", fields: [clientId], references: [id])
-  User_Order_writerIdToUser     User?           @relation("Order_writerIdToUser", fields: [writerId], references: [id])
-  submission                    submission?
+model Post {
+  id             String    @id
+  userId         String?
+  name           String
+  topic          String
+  description    String
+  words          Int?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime
+  clientDeadline DateTime
+  writerDeadline DateTime?
+  price          Float
+  writerRating   Int?
+  File           File[]
+  Author         User?     @relation(fields: [userId], references: [id])
 
-  @@index([writerId], map: "writerId")
+  @@index([userId], map: "userId")
 }
 
 model Session {
@@ -77,21 +65,20 @@ model Session {
 }
 
 model User {
-  id                             String       @id
-  name                           String
-  email                          String       @unique
-  password                       String?
-  createdAt                      DateTime     @default(now())
-  updatedAt                      DateTime
-  emailVerified                  DateTime?
-  image                          String?
-  userType                       User_type
-  Account                        Account[]
-  Order_Order_assignedByIdToUser Order[]      @relation("Order_assignedByIdToUser")
-  Order_Order_clientIdToUser     Order[]      @relation("Order_clientIdToUser")
-  Order_Order_writerIdToUser     Order[]      @relation("Order_writerIdToUser")
-  Session                        Session[]
-  submission                     submission[]
+  id            String    @id
+  firstName     String
+  lastName      String
+  name          String
+  email         String    @unique
+  password      String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime
+  emailVerified DateTime?
+  image         String?
+  userType      User_type
+  Account       Account[]
+  Post          Post[]
+  Session       Session[]
 }
 
 model VerificationToken {
@@ -102,118 +89,7 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model submission {
-  id        String   @id
-  orderId   String   @unique
-  userId    String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime
-  Order     Order    @relation(fields: [orderId], references: [id])
-  User      User?    @relation(fields: [userId], references: [id])
-
-  @@index([userId], map: "userId")
-}
-
-enum Education_level {
-  HIGH_SCHOOL
-  UNDERGRADUATE
-  COLLEGE
-  MASTERS
-  PHD
-  OTHER
-}
-
-enum FileType {
-  ORDER_FILE
-  SUBMISSION_FILE
-}
-
-enum Order_status {
-  NEW
-  AVAILABLE
-  UNCONFIRMED
-  INPROGRESS
-  COMPLETED
-  CANCELLED
-  REVISION
-  DISPUTE
-  REFUNDED
-  EDITING
-}
-
-enum Order_type {
-  ESSAY
-  RESEARCH_PAPER
-  TERM_PAPER
-  COURSEWORK
-  CASE_STUDY
-  BOOK_REVIEW
-  ARTICLE_REVIEW
-  ANNOTATED_BIBLIOGRAPHY
-  BOOK_REPORT
-  MOVIE_REVIEW
-  MOVIE_CRITIQUE
-  ARTICLE
-  ARTICLE_CRITIQUE
-  REACTION_PAPER
-  LETTER
-  REFLECTION_PAPER
-  LAB_REPORT
-  LAB_WORK
-  SPEECH
-  PRESENTATION
-  POWERPOINT_PRESENTATION
-  MATH_PROBLEM
-  STATISTICS_PROJECT
-  RESEARCH_SUMMARY
-  THESIS
-  DISSERTATION
-  THESIS_PROPOSAL
-  DISSERTATION_PROPOSAL
-  RESEARCH_PROPOSAL
-  ADMISSION_ESSAY
-  SCHOLARSHIP_ESSAY
-  PERSONAL_STATEMENT
-  EDITING
-  PROOFREADING
-  REWRITING
-  RESUME
-  CV
-  COVER_LETTER
-  OTHER
-}
-
-enum Subject {
-  MATH
-  SCIENCE
-  ENGLISH
-  BIOLOGY
-  HISTORY
-  GEOGRAPHY
-  CHEMISTRY
-  PHYSICS
-  LITERATURE
-  ECONOMICS
-  ENGINEERING
-  COMPUTER_SCIENCE
-  BUSINESS
-  LAW
-  PHILOSOPHY
-  PSYCHOLOGY
-  POLITICAL_SCIENCE
-  SOCIOLOGY
-  STATISTICS
-  ACCOUNTING
-  PROGRAMMING
-  OTHER
-  SOCIAL_STUDIES
-  SOCIAL_SCIENCE
-}
-
 enum User_type {
   WRITER
-  CLIENT
-  SUPER_ADMIN
-  ADMIN
-  MANAGER
+  READER
 }
