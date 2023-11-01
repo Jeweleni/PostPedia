@@ -16,6 +16,7 @@ export const Header = () => {
   const shoNa = () => {
     setSh((p) => !p);
   };
+  
   return (
     <header className={styled.header}>
       <Link
@@ -41,16 +42,16 @@ export const Header = () => {
               <Link href={el.link}>{el.title}</Link>
             </li>
           ))}
-          <div className="flex justify-start items-start gap-6 md:hidden mt-10">
+          <div className="flex flex-col justify-start items-start gap-6 md:hidden mt-10">
             <Link
               href="/auth"
-              className="w-fit h-14 px-4 py-2 rounded-lg border border-primary justify-end items-center gap-2 text-white flex text-lg font-bold leading-[27px] transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary"
+              className="w-fit h-14 px-4 py-2 rounded-lg bg-white border border-white justify-end items-center gap-2 text-primary flex text-lg font-bold leading-[27px]"
             >
               Log in
             </Link>
             <Link
               href="/auth"
-              className="w-fit h-14 px-4 py-2 border-primary bg-primary rounded-lg justify-end items-center gap-2 flex text-white text-lg font-bold leading-[27px] transition-all duration-300 hover:bg-white hover:text-primary hover:border-primary"
+              className="w-fit h-14 px-4 py-2 border-white bg-primary rounded-lg justify-end items-center gap-2 flex text-white text-lg font-bold leading-[27px]"
             >
               Sign up
             </Link>

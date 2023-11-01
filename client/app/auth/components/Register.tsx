@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { BiShow } from "react-icons/bi";
 import { PiEyeClosedBold} from "react-icons/pi";
