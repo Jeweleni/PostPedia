@@ -1,5 +1,5 @@
 "use client";
-import React, { use } from "react";
+import React from "react";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import main from "../../public/assets/auth.jpg";
@@ -71,7 +71,7 @@ const Auth = () => {
           }}
         />
       )}
-      <div className="w-[60%] h-full relative hidden md:block flex-1">
+      <div className="flex-1 h-full relative hidden md:block">
         <Image
           priority={true}
           width={0}
@@ -89,7 +89,7 @@ const Auth = () => {
           </p>
         </div>
       </div>
-      <div className="w-full min-h-full flex justify-start items-center flex-col flex-1 gap-10 p-10 md:max-w-[500px] my-10">
+      <div className="flex-5 min-h-full flex justify-start items-center flex-col gap-5 px-10 pt-5 my-10 min-w-[550px]">
         {!otp && (
           <>
             <Slider auth={auth} toggleAuth={toggleAuth} toggle={toggle} />
@@ -97,11 +97,13 @@ const Auth = () => {
         )}
         {!otp ? (
           auth === "login" ? (
-            <Login
-              login={login}
-              setLogin={setLogin}
-              handleLogin={handleLogin}
-            />
+            <>
+              <Login
+                login={login}
+                setLogin={setLogin}
+                handleLogin={handleLogin}
+              />
+            </>
           ) : (
             <>
               <Register
