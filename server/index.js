@@ -21,9 +21,9 @@ app.use(function (req, res, next) {
 
 readdirSync("./routes").map((path) => {
   if (path !== "auth.js") {
-    app.use("/api", require(`.routes/${path}`));
+    app.use("/api", require(`./routes/${path}`));
   }
-  app.use("/auth", require(`.routes/${path}`));
+  app.use("/auth", require(`./routes/${path}`));
 });
 
 app.get("/", (req, res) => {
