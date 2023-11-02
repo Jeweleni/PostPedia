@@ -29,7 +29,7 @@ readdirSync("./routes").map((path) => {
 app.get("/", (req, res) => {
   return req.user
     ? res.send(req.user)
-    : res.send("I AM WORKING, it's a miracle!");
+    : res.send("I AM WORKING, it's a miracle!!!!!!!!!!!!!!");
 });
 
 const PORT = process.env.PORT || 3000;
