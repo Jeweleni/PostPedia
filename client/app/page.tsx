@@ -34,8 +34,8 @@ export default function Home() {
           </div>
         </section>
         {/* ABOUT SECTION */}
-        <section className="lg:flex lg:flex-row flex-col items-center justify-between w-[90%] py-20 mx-auto">
-          <div className="w-full mb-6 md:mb-0 md:mr-8 mx-4 md:mx-0 lg:w-[55%]">
+        <section className="lg:flex lg:flex-row flex-col items-center justify-between w-[90%] mx-auto py-[90px]">
+          <div className="w-full lg:w-[95%]">
             <h2 className="text-black font-bold font-body text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-8 md:leading-10 lg:leading-12 xl:leading-14 mb-4 md:mb-6">
               About PostPedia
             </h2>
@@ -136,7 +136,7 @@ export default function Home() {
         {/* REVIEW SECTION */}
         <section className="lg:w-[70%] mx-auto">
           <div className="lg:flex lg:flex-row flex-col items-start justify-between px-[20px] py-[90px]">
-            <div className="lg:w-[35%] w-[60%] mx-auto">
+            <div className="lg:w-[35%] w-[70%] mx-auto">
               <Image
                 src={groupPic}
                 alt="Description of the image"
