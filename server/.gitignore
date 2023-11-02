@@ -1,1 +1,6 @@
 node_modules
+DS_store
+.env
+/server/node_modules
+/server/.env
+/server/.DS_store

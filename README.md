@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# POSTPEDIA
 
-## Getting Started
+LOREM
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Project Configuration](#project-configuration)
+- [Getting Started](#getting-started-running-the-server)
+- [Tech Stack](#tech-Stack)
+- [License](#license)
+- [Documentation](#documentation)
+- [Links](#links)
+- [The Team](#the-team)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📁 Project Configuration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The project is divided into:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Getting Started: Running the Server
 
-## Learn More
+## 🔧 Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- NextJS
+- NodeJS
+- ExpressJS
+- PRISMA
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 📝 Requirements
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### 💻 Running Locally
 
-## Deploy on Vercel
+## 📄 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project uses the MIT License as found in [LICENSE](/LICENSE)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 📖 Documentation
+
+## 🔗 Links
+
+- [Server URL](http://ec2-18-119-101-235.us-east-2.compute.amazonaws.com:3000/)
+
+## 🤝 The Team
+
+Built by xyz
