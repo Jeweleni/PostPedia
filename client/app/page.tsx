@@ -35,7 +35,7 @@ export default function Home() {
         </section>
         {/* ABOUT SECTION */}
         <section className="lg:flex lg:flex-row flex-col items-center justify-between w-[90%] mx-auto py-[90px]">
-          <div className="w-full lg:w-[95%]">
+          <div className="w-full lg:w-[50%]">
             <h2 className="text-black font-bold font-body text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-8 md:leading-10 lg:leading-12 xl:leading-14 mb-4 md:mb-6">
               About PostPedia
             </h2>
