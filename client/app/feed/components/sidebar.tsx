@@ -11,7 +11,11 @@ import { AiOutlineBell, AiOutlineTeam } from "react-icons/ai";
 import { HiArrowTrendingUp } from "react-icons/hi2";
 import { BiUser } from "react-icons/bi";
 
-const Sidebar = () => {
+type Props = {
+  isSidebarOpen: boolean;
+};
+
+const Sidebar = ({ isSidebarOpen }: Props) => {
   const router = useRouter();
 
   const isActive = (route: string) => {
@@ -60,7 +64,13 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className={`w-[300x] border p-3`}>
+      <div
+        className={`w-[min(80vw,300px)] border p-3 md:block ${
+          isSidebarOpen
+            ? "block md:static fixed bg-white z-50 h-full md:h-auto overflow-auto "
+            : "hidden"
+        }`}
+      >
         <div className="text-primary text-[32px] font-medium mb-2 text-left p-3">
           POSTPEDIA
         </div>

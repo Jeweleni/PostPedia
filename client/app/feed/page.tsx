@@ -5,14 +5,18 @@ import Sidebar from "./components/sidebar";
 import FeedPage from "./pages/feed";
 
 const Page = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
   return (
-    <div className="flex h-screen">
+    <div className="flex h-full">
       {/* Sidebar component */}
-      <Sidebar />
+      <Sidebar isSidebarOpen={isSidebarOpen} />
 
       <div className="w-full h-full">
         {/* Navbar component */}
-        <Navbar />
+        <Navbar
+          isSidebarOpen={isSidebarOpen}
+          setIsSidebarOpen={setIsSidebarOpen}
+        />
 
         {
           /* Your feed content goes here */
