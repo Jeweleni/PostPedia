@@ -7,78 +7,106 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Account {
-  id                String  @id
-  userId            String
-  type              String
-  provider          String
-  providerAccountId String
-  refresh_token     String?
-  access_token      String?
-  expires_at        Int?
-  token_type        String?
-  scope             String?
-  id_token          String?
-  session_state     String?
-  User              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([provider, providerAccountId])
-}
-
-model File {
+model Comment {
   id        String   @id
-  name      String
-  url       String
+  userId    String?
   postId    String?
+  comment   String
   createdAt DateTime @default(now())
   updatedAt DateTime
   Post      Post?    @relation(fields: [postId], references: [id])
+  User      User?    @relation(fields: [userId], references: [id])
+}
 
-  @@index([postId], map: "postId")
+model Follows {
+  followerId                     String
+  followingId                    String
+  User_Follows_followerIdToUser  User   @relation("Follows_followerIdToUser", fields: [followerId], references: [id])
+  User_Follows_followingIdToUser User   @relation("Follows_followingIdToUser", fields: [followingId], references: [id])
+
+  @@id([followerId, followingId])
+}
+
+model Image {
+  id     String  @id
+  url    String
+  postId String?
+  Post   Post?   @relation(fields: [postId], references: [id])
+}
+
+model Like {
+  id     String  @id
+  userId String?
+  postId String?
+  Post   Post?   @relation(fields: [postId], references: [id])
+  User   User?   @relation(fields: [userId], references: [id])
 }
 
 model Post {
-  id             String    @id
-  userId         String?
-  name           String
-  topic          String
-  description    String
-  words          Int?
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime
-  clientDeadline DateTime
-  writerDeadline DateTime?
-  price          Float
-  writerRating   Int?
-  File           File[]
-  Author         User?     @relation(fields: [userId], references: [id])
+  id          String    @id
+  userId      String?
+  topic       String
+  description String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime
+  slug        String
+  title       String
+  views       Int       @default(0)
+  Comment     Comment[]
+  Image       Image[]
+  Like        Like[]
+  User        User?     @relation(fields: [userId], references: [id])
+  Tag         Tag[]
 
   @@index([userId], map: "userId")
 }
 
-model Session {
-  id           String   @id
-  sessionToken String   @unique
-  userId       String
-  expires      DateTime
-  User         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+model Setting {
+  id        String    @id
+  userId    String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime
+  language  Language?
+  darkMode  Boolean?  @default(false)
+  User      User?     @relation(fields: [userId], references: [id])
+}
+
+model Subscription {
+  id        String   @id
+  userId    String?
+  amount    Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  plan      Plan     @default(BASIC)
+  User      User?    @relation(fields: [userId], references: [id])
+}
+
+model Tag {
+  id     String  @id
+  name   String  @unique
+  postId String?
+  Post   Post?   @relation(fields: [postId], references: [id])
 }
 
 model User {
-  id            String    @id
-  firstName     String
-  lastName      String
-  name          String
-  email         String    @unique
-  password      String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime
-  emailVerified DateTime?
-  image         String?
-  userType      User_type
-  Account       Account[]
-  Post          Post[]
-  Session       Session[]
+  id                                String         @id
+  firstName                         String
+  lastName                          String
+  email                             String         @unique
+  password                          String?
+  createdAt                         DateTime       @default(now())
+  updatedAt                         DateTime
+  emailVerified                     DateTime?
+  profileImage                      String?
+  slug                              String
+  userName                          String         @unique
+  Comment                           Comment[]
+  Follows_Follows_followerIdToUser  Follows[]      @relation("Follows_followerIdToUser")
+  Follows_Follows_followingIdToUser Follows[]      @relation("Follows_followingIdToUser")
+  Like                              Like[]
+  Post                              Post[]
+  Setting                           Setting[]
+  Subscription                      Subscription[]
 }
 
 model VerificationToken {
@@ -89,7 +117,33 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-enum User_type {
-  WRITER
-  READER
+enum Language {
+  ENGLISH
+  FRENCH
+  SPANISH
+  GERMAN
+  ITALIAN
+  PORTUGUESE
+  RUSSIAN
+  JAPANESE
+  KOREAN
+  CHINESE
+  ARABIC
+  HINDI
+  BENGALI
+  PUNJABI
+  TELUGU
+  MARATHI
+  TAMIL
+  URDU
+  GUJARATI
+  KANNADA
+  MALAYALAM
+  OTHER
+}
+
+enum Plan {
+  BASIC
+  PREMIUM
+  ENTERPRISE
 }
