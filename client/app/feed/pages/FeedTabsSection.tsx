@@ -1,4 +1,3 @@
-'use client'
 import React from "react";
 
 interface FeedTabSectionProps {
@@ -6,34 +5,44 @@ interface FeedTabSectionProps {
   activeTab: string;
 }
 
-const FeedTabSection: React.FC<FeedTabSectionProps> = ({ setActiveTab, activeTab }) => {
+const FeedTabSection: React.FC<FeedTabSectionProps> = ({
+  setActiveTab,
+  activeTab,
+}) => {
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
   };
 
+  const links = [
+    {
+      title: "For You",
+      id: "for-you",
+    },
+    {
+      title: "Featured",
+      id: "featured",
+    },
+    {
+      title: "Recent",
+      id: "recent",
+    },
+  ];
+
   return (
-    <div className="w-fit h-auto rounded-lg border border-stone-300 justify-start items-center inline-flex">
-      <div className="p-6 self-stretch justify-start items-start gap-60 inline-flex">
-        
-      <div
-        onClick={() => handleTabClick("for-you")}
-        className={`cursor-pointer  ${activeTab === "for-you" ? "border-b-2 border-primary" : ""}`}
-      >
-        For You
-      </div>
-      <div
-        onClick={() => handleTabClick("featured")}
-        className={`cursor-pointer  ${activeTab === "featured" ? "border-b-2 border-primary" : ""}`}
-      >
-        Featured
-      </div>
-      <div
-        onClick={() => handleTabClick("recent")}
-        className={`cursor-pointer  ${activeTab === "recent" ? "border-b-2 border-primary" : ""}`}
-      >
-        Recent
-      </div>
-    </div>
+    <div className="w-full rounded-lg border border-stone-300 justify-between items-center flex px-6 h-[70px]">
+      <ul className="flex justify-between items-end w-full h-full">
+        {links.map((link) => (
+          <li
+            key={link.id}
+            onClick={() => handleTabClick(link.id)}
+            className={`cursor-pointer font-bold min-h-[46px] ${
+              activeTab === link.id ? "border-b-4 border-primary" : ""
+            }`}
+          >
+            {link.title}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
