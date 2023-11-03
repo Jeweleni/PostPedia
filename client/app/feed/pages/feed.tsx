@@ -11,12 +11,12 @@ const FeedPage: React.FC = () => {
 
   return (
     <>
-      <div className="p-4 md:p-6 flex justify-between w-full h-[calc(100svh-70px)] overflow-auto ">
-        <div className="w-[min(90vw,1000px)] mx-auto">
+      <div className="p-4 md:p-6 flex justify-between w-full h-[calc(100svh-70px)] overflow-auto no-scrollbar mb-5">
+        <div className="w-[90vw] md:max-w-[750px] mx-auto my-4">
           {createPost ? (
             <CreatePost setCreatePost={setCreatePost} />
           ) : (
-            <div className="p-4 md:p-6 border flex flex-col justify-center items-center gap-3 md:gap-5 mb-4">
+            <div className="p-4 md:p-6 border flex flex-col justify-center items-center gap-3 md:gap-5">
               <div className="flex md:justify-between md:items-end w-full md:gap-5 md:flex-row flex-col">
                 <div className="flex flex-col justify-start items-start">
                   <h1 className="text-black text-lg md:text-[32px] font-bold md:font-medium">

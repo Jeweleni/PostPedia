@@ -59,7 +59,7 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
   return (
     <>
       <div
-        className={`w-[min(80vw,300px)] border p-3 md:block ${
+        className={`min-h-screen max-w-[300px] p-3 md:block ${
           isSidebarOpen
             ? "block md:static fixed bg-white z-50 h-full md:h-auto overflow-auto "
             : "hidden"

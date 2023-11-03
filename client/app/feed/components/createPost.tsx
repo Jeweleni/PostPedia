@@ -126,6 +126,7 @@ const CreatePost = ({ setCreatePost }: Props) => {
           <textarea
             id="description"
             value={description}
+            placeholder="Write a post........."
             onChange={(e) => {
               setError((p) => ({ ...p, description: false, state: false }));
               setDescription(e.target.value);
