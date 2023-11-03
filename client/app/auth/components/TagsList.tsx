@@ -8,6 +8,7 @@ import {
   Button,
 } from "@nextui-org/react";
 import { BiDownArrowAlt } from "react-icons/bi";
+import { tags } from "../../../lib/data";
 
 export default function TagsList() {
   const [selectedKeys, setSelectedKeys] = React.useState(new Set([""]));
@@ -16,32 +17,6 @@ export default function TagsList() {
     () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
     [selectedKeys]
   );
-
-  const tags = [
-    { id: 1, name: "Action" },
-    { id: 2, name: "Actions" },
-    { id: 3, name: "Adventure" },
-    { id: 4, name: "Cars" },
-    { id: 5, name: "Comedy" },
-    { id: 6, name: "Dementia" },
-    { id: 7, name: "Demons" },
-    { id: 8, name: "Mystery" },
-    { id: 9, name: "Drama" },
-    { id: 10, name: "Ecchi" },
-    { id: 11, name: "Fantasy" },
-    { id: 12, name: "Game" },
-    { id: 13, name: "Hentai" },
-    { id: 14, name: "Historical" },
-    { id: 15, name: "Horror" },
-    { id: 16, name: "Kids" },
-    { id: 17, name: "Magic" },
-    { id: 18, name: "Martial Arts" },
-    { id: 19, name: "Mecha" },
-    { id: 20, name: "Music" },
-    { id: 21, name: "Parody" },
-    { id: 22, name: "Samurai" },
-    { id: 23, name: "Romance" },
-  ];
 
   return (
     <div className="w-full">
@@ -56,7 +31,7 @@ export default function TagsList() {
           closeOnSelect={false}
           disallowEmptySelection
           selectionMode="multiple"
-          className="w-[100%] flex gap-2 h-[200px] overflow-y-scroll"
+          className="w-[100%] flex gap-2 h-[200px] overflow-y-auto"
           aria-label="Multiple selection example"
           onSelectionChange={setSelectedKeys}
           aria-required="true"
