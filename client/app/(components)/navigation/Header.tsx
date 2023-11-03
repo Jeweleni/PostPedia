@@ -10,7 +10,7 @@ export const Header = () => {
     { title: "Home", link: "/" },
     { title: "About", link: "/about" },
     { title: "Contact", link: "/contact" },
-    { title: "Feed", link: "/feed" },
+    { title: "Blogs", link: "/feed" },
   ];
 
   const shoNa = () => {

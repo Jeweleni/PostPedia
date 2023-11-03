@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
+import userprofile from "../../../public/assets/userprofile.png";
 import {
   MdOutlineAnalytics,
   MdOutlineDrafts,
@@ -10,6 +11,8 @@ import { BsBookmarks } from "react-icons/bs";
 import { AiOutlineBell, AiOutlineTeam } from "react-icons/ai";
 import { HiArrowTrendingUp } from "react-icons/hi2";
 import { BiUser } from "react-icons/bi";
+import Link from "next/link";
+import Image from "next/image";
 
 type Props = {
   isSidebarOpen: boolean;
@@ -84,7 +87,7 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
                 key={link.name}
                 className={` hover:text-green-800 flex items-center mb-3 cursor-pointer ${isActive(
                   link.route
-                )}`}
+                )}'text-green-800'`}
                 onClick={() => handleNavigate(link.route)}
               >
                 <div className=" w-6 mr-2">{link.icon}</div>
@@ -117,18 +120,24 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
           </div>
           <ul className="ml-6 text-gray-600">
             <li
-              className={`flex items-center mb-3 cursor-pointer ${isActive(
+              className={`hover:text-green-800 flex items-center mb-3 cursor-pointer ${isActive(
                 "/personal/account"
               )}`}
               onClick={() => handleNavigate("/personal/account")}
             >
               <div className="w-6 mr-2">
-                <BiUser />
+                <Image
+                  src={userprofile}
+                  className="w-full aspect-square rounded-full"
+                  alt="User Profile"
+                  width={0}
+                  height={0}
+                />
               </div>
               Account
             </li>
             <li
-              className={`flex items-center mb-3 cursor-pointer ${isActive(
+              className={`hover:text-green-800 flex items-center mb-3 cursor-pointer ${isActive(
                 "/personal/notification"
               )}`}
               onClick={() => handleNavigate("/personal/notification")}
@@ -141,7 +150,7 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
           </ul>
 
           <div className="text-red-600 text-lg font-normal mt-4 cursor-pointer ml-6">
-            Log Out
+            <Link href={"/"}>Log Out</Link>
           </div>
         </div>
       </div>
