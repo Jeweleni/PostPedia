@@ -10,6 +10,8 @@ import { BsBookmarks } from "react-icons/bs";
 import { AiOutlineBell, AiOutlineTeam } from "react-icons/ai";
 import { HiArrowTrendingUp } from "react-icons/hi2";
 import { BiUser } from "react-icons/bi";
+import { tags } from "../../../lib/data";
+import Link from "next/link";
 
 type Props = {
   isSidebarOpen: boolean;
@@ -54,26 +56,21 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
     },
   ];
 
-  const tags = [
-    { name: "Programming" },
-    { name: "Data science" },
-    { name: "Technology" },
-    { name: "Machine learning" },
-    { name: "Politics" },
-  ];
-
   return (
     <>
       <div
-        className={`w-[min(80vw,300px)] border p-3 md:block ${
+        className={`min-h-screen max-w-[300px] p-3 md:block ${
           isSidebarOpen
             ? "block md:static fixed bg-white z-50 h-full md:h-auto overflow-auto "
             : "hidden"
         }`}
       >
-        <div className="text-primary text-[32px] font-medium mb-2 text-left p-3">
+        <Link
+          href="/feed"
+          className="text-primary text-[32px] font-medium mb-2 text-left p-3"
+        >
           POSTPEDIA
-        </div>
+        </Link>
         <div className="text-left items-center ml-3">
           <div className="text-black text-lg font-normal leading-[27px] mb-4  p-2">
             Overview

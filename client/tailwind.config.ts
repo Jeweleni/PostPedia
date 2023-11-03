@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { nextui } from "@nextui-org/react";
 
 const config: Config = {
   content: [
@@ -12,13 +13,13 @@ const config: Config = {
         primary: "#1E3231",
       },
       backgroundColor: {
-        'rgba-50': 'rgba(255, 237, 204, 0.50)',
+        "rgba-50": "rgba(255, 237, 204, 0.50)",
       },
       fontFamily: {
-        'body': ['DM Sans', 'sans'],
+        body: ["DM Sans", "sans"],
       },
     },
   },
-  plugins: [],
+  plugins: [nextui()],
 };
 export default config;

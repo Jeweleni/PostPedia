@@ -3,14 +3,14 @@ import { FcCheckmark } from "react-icons/fc";
 
 const Popup = ({ handlePopup }: any) => {
   return (
-    <div className="absolute top-0 left-0 bg-black z-50 w-[100vw] bg-opacity-80 h-[calc(100svh-80px)] flex justify-center items-center overflow-x-hidden">
+    <div className="absolute top-0 left-0 bg-black z-50 w-[100vw] bg-opacity-80 h-screen flex justify-center items-center overflow-x-hidden">
       <div className="relative w-[min(350px,90vw)] aspect-square bg-white rounded-lg flex flex-col justify-center items-center p-10 gap-7">
-        <span
+        {/* <span
           onClick={handlePopup}
           className="absolute -right-10 -top-0 border-[2px] text-2xl rounded-full w-[35px] h-[35px] aspect-square grid place-content-center p-3 text-white cursor-pointer"
         >
           x
-        </span>
+        </span> */}
         <span className="bg-green-200 bg-opacity-30 p-5 rounded-full">
           <FcCheckmark className="border-4 border-green-600 bg-green-200 bg-opacity-30 rounded-full text-[70px] p-1" />
         </span>
