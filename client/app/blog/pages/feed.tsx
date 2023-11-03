@@ -5,12 +5,11 @@ import { FiEdit2 } from "react-icons/fi";
 import ForYouPage from "./ForYou";
 import CreatePost from "../components/createPost";
 
-const FeedPage: React.FC = () => {
+const FeedPage = () => {
   const [activeTab, setActiveTab] = useState("for-you");
   const [createPost, setCreatePost] = useState(false);
 
   return (
-    <>
       <div className="p-4 flex justify-between w-full h-[calc(100svh-100px)] overflow-auto no-scrollbar mb-5">
         <div className="w-[90vw] md:max-w-[500px] lg:max-w-[700px] mx-auto my-4">
           {createPost ? (
@@ -70,7 +69,6 @@ const FeedPage: React.FC = () => {
           )}
         </div>
       </div>
-    </>
   );
 };
 

@@ -3,10 +3,8 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import isAuthenticated from "./isAuthenticated";
 
-const withAuth = <P extends { children: React.ReactNode }>(
-  WrappedComponent: React.ComponentType<P>
-) => {
-  const Wrapper: React.FC<P> = (props) => {
+const withAuth = (WrappedComponent: any) => {
+  const Wrapper = (props: any) => {
     const router = useRouter();
 
     useEffect(() => {
