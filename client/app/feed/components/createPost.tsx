@@ -54,14 +54,6 @@ const CreatePost = ({ setCreatePost }: Props) => {
     },
   ];
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setTitle(value);
-    if (value !== "") {
-      setError((p) => ({ ...p, title: false }));
-    }
-  };
-
   const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
     if (file) {
@@ -72,7 +64,6 @@ const CreatePost = ({ setCreatePost }: Props) => {
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    const description = descriptionInput?.current?.innerText;
     if (title === "") {
       setError((p) => ({ ...p, title: true, state: true }));
       return;
@@ -121,7 +112,10 @@ const CreatePost = ({ setCreatePost }: Props) => {
           <input
             id="title"
             value={title}
-            onChange={handleChange}
+            onChange={(e) => {
+              setError((p) => ({ ...p, title: false, state: false }));
+              setTitle(e.target.value);
+            }}
             placeholder="Title"
             className={`w-full h-[50px] outline-none ring-0 text-2xl font-bold text-primary rounded-lg py-2 px-4 capitalize ${
               error.state && error.title
@@ -132,6 +126,10 @@ const CreatePost = ({ setCreatePost }: Props) => {
           <textarea
             id="description"
             value={description}
+            onChange={(e) => {
+              setError((p) => ({ ...p, description: false, state: false }));
+              setDescription(e.target.value);
+            }}
             className={`flex flex-wrap w-full overflow-y-auto flex-[4] break-all break-words outline-none text-sm text-gray-500 rounded-lg overflow-x-hidden p-4 capitalize overscroll-y-contain resize-none ${
               error.state && error.description
                 ? "bg-red-50 border-red-500 border-2"
