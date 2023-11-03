@@ -9,6 +9,7 @@ import Otp from "./components/Otp";
 import Popup from "./components/Popup";
 import { useRouter } from "next/navigation";
 import { NextUIProvider } from "@nextui-org/react";
+import { Selection } from "@nextui-org/react";
 
 const Auth = () => {
   const router = useRouter();
@@ -17,13 +18,17 @@ const Auth = () => {
   const [popup, setPopup] = React.useState(false);
 
   const [auth, setAuth] = React.useState("login");
+
+  // otp
   const [otpCode, setOtpCode] = React.useState("");
 
+  // login form
   const [login, setLogin] = React.useState({
     email: "",
     password: "",
   });
 
+  // register form
   const [register, setRegister] = React.useState({
     firstname: "",
     lastname: "",
@@ -32,7 +37,8 @@ const Auth = () => {
     confirmPassword: "",
   });
 
-  const [selected, setSelected] = React.useState<any>("");
+  // tags
+  const [values, setValues] = React.useState<Selection>(new Set([""]));
 
   const toggleAuth = () => {
     if (auth === "login") {
@@ -57,8 +63,9 @@ const Auth = () => {
   };
   const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const interests = Array.from(values);
     setOtp((p: any) => !p);
-    const registerInfo = { ...register, selected };
+    const registerInfo = { ...register, interests };
     console.log(registerInfo);
   };
 
@@ -109,9 +116,10 @@ const Auth = () => {
             ) : (
               <>
                 <Register
+                  values={values}
+                  setValues={setValues}
                   register={register}
                   setRegister={setRegister}
-                  setSelected={setSelected}
                   setOtp={setOtp}
                   handleRegister={handleRegister}
                 />

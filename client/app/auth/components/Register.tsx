@@ -3,6 +3,7 @@ import { BiShow } from "react-icons/bi";
 import { PiEyeClosedBold } from "react-icons/pi";
 import { FcGoogle } from "react-icons/fc";
 import TagsList from "./TagsList";
+import { Selection } from "@nextui-org/react";
 
 type Props = {
   setOtp: React.Dispatch<React.SetStateAction<boolean>>;
@@ -22,24 +23,22 @@ type Props = {
     password: string;
     confirmPassword: string;
   };
-  setSelected: React.Dispatch<React.SetStateAction<any>>;
   handleRegister: (e: React.FormEvent<HTMLFormElement>) => void;
+  values: Selection;
+  setValues: React.Dispatch<React.SetStateAction<Selection>>;
 };
 
 const Register = ({
   handleRegister,
   setRegister,
   register,
-  setSelected,
+  values,
+  setValues,
 }: Props) => {
   const [password, setPassword] = React.useState(true);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRegister({ ...register, [e.target.id]: e.target.value });
-  };
-
-  const handleSelected = (value: any) => {
-    setSelected(value);
   };
 
   const toggleVisible = () => {
@@ -98,7 +97,7 @@ const Register = ({
         </label>
 
         {/* Joining as */}
-        <TagsList />
+        <TagsList values={values} setValues={setValues} />
 
         {/* password */}
         <label
