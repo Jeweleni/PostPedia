@@ -4,7 +4,7 @@ const Slider = ({ auth, toggleAuth, toggle }: any) => {
     const toggleClass = "transform translate-x-[100%]";
 
   return (
-    <div className="flex justify-between w-full flex-col gap-2 mb-5">
+    <div className="flex justify-between w-full flex-col gap-2 mb-5 select-none">
       <div className="flex justify-between items-center w-full">
         <h1
           className={

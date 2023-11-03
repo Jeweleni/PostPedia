@@ -1,7 +1,9 @@
 import React from "react";
 import { BiShow } from "react-icons/bi";
-import { PiEyeClosedBold} from "react-icons/pi";
+import { PiEyeClosedBold } from "react-icons/pi";
 import { FcGoogle } from "react-icons/fc";
+import TagsList from "./TagsList";
+import { Selection } from "@nextui-org/react";
 
 type Props = {
   setOtp: React.Dispatch<React.SetStateAction<boolean>>;
@@ -21,24 +23,22 @@ type Props = {
     password: string;
     confirmPassword: string;
   };
-  setSelected: React.Dispatch<React.SetStateAction<any>>;
   handleRegister: (e: React.FormEvent<HTMLFormElement>) => void;
+  values: Selection;
+  setValues: React.Dispatch<React.SetStateAction<Selection>>;
 };
 
 const Register = ({
   handleRegister,
   setRegister,
   register,
-  setSelected,
+  values,
+  setValues,
 }: Props) => {
   const [password, setPassword] = React.useState(true);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRegister({ ...register, [e.target.id]: e.target.value });
-  };
-
-  const handleSelected = (value: any) => {
-    setSelected(value);
   };
 
   const toggleVisible = () => {
@@ -83,20 +83,7 @@ const Register = ({
             />
           </label>
         </div>
-        {/* Joining as */}
-        <div className="w-full">
-          <p className="text-sm font-[500]">You are joining as?</p>
-          <div className="relative w-full h-[50px]">
-            <select
-              className="w-full p-2.5 text-gray-500 bg-white outline-0 border border-gray-400 border-opacity-40 rounded-lg h-[50px] px-3 mt-1 shadow-sm shadow-gray-300"
-              defaultValue={"writer"}
-              onChange={(e) => handleSelected(e.target.value)}
-            >
-              <option value="writer">Writer</option>
-              <option className="reader">Reader</option>
-            </select>
-          </div>
-        </div>
+
         {/* email */}
         <label htmlFor="email" className="flex flex-col text-sm font-[500]">
           Email address
@@ -108,6 +95,10 @@ const Register = ({
             onChange={handleChange}
           />
         </label>
+
+        {/* Joining as */}
+        <TagsList values={values} setValues={setValues} />
+
         {/* password */}
         <label
           htmlFor="password"

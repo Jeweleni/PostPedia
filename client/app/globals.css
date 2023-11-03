@@ -48,3 +48,9 @@
 body {
   font-family: "DM Sans", sans-serif;
 }
+
+[data-placeholder]:empty:before {
+  content: attr(data-placeholder);
+  color: gray;
+  font-style: italic;
+}
