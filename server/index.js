@@ -21,15 +21,15 @@ app.use(function (req, res, next) {
 
 readdirSync("./routes").map((path) => {
   if (path !== "auth.js") {
-    app.use("/api", require(`.routes/${path}`));
+    app.use("/api", require(`./routes/${path}`));
   }
-  app.use("/auth", require(`.routes/${path}`));
+  app.use("/auth", require(`./routes/${path}`));
 });
 
 app.get("/", (req, res) => {
   return req.user
     ? res.send(req.user)
-    : res.send("I AM WORKING, it's a miracle!");
+    : res.send("I AM WORKING, it's a miracle!!!!!!!!!!!!!!");
 });
 
 const PORT = process.env.PORT || 3000;
