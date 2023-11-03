@@ -28,7 +28,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: NavbarProps) => {
             <AiOutlineSearch className=" text-zinc-600 w-6 h-6" />
             <input
               type="text"
-              placeholder="Search PostPedia"
+              placeholder='Search PostPedia'
               className="outline-none border-none w-full"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
