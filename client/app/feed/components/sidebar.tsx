@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
+import userprofile from "../../../public/assets/userprofile.png";
 import {
   MdOutlineAnalytics,
   MdOutlineDrafts,
@@ -10,6 +11,11 @@ import { BsBookmarks } from "react-icons/bs";
 import { AiOutlineBell, AiOutlineTeam } from "react-icons/ai";
 import { HiArrowTrendingUp } from "react-icons/hi2";
 import { BiUser } from "react-icons/bi";
+import Link from "next/link";
+import Image from "next/image";
+import { tags } from "../../../lib/data";
+
+
 
 type Props = {
   isSidebarOpen: boolean;
@@ -54,26 +60,21 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
     },
   ];
 
-  const tags = [
-    { name: "Programming" },
-    { name: "Data science" },
-    { name: "Technology" },
-    { name: "Machine learning" },
-    { name: "Politics" },
-  ];
-
   return (
     <>
       <div
-        className={`w-[min(80vw,300px)] border p-3 md:block ${
+        className={`min-h-screen max-w-[300px] p-3 md:block ${
           isSidebarOpen
             ? "block md:static fixed bg-white z-50 h-full md:h-auto overflow-auto "
             : "hidden"
         }`}
       >
-        <div className="text-primary text-[32px] font-medium mb-2 text-left p-3">
+        <Link
+          href="/feed"
+          className="text-primary text-[32px] font-medium mb-2 text-left p-3"
+        >
           POSTPEDIA
-        </div>
+        </Link>
         <div className="text-left items-center ml-3">
           <div className="text-black text-lg font-normal leading-[27px] mb-4  p-2">
             Overview
@@ -84,7 +85,7 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
                 key={link.name}
                 className={` hover:text-green-800 flex items-center mb-3 cursor-pointer ${isActive(
                   link.route
-                )}`}
+                )}'text-green-800'`}
                 onClick={() => handleNavigate(link.route)}
               >
                 <div className=" w-6 mr-2">{link.icon}</div>
@@ -117,18 +118,24 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
           </div>
           <ul className="ml-6 text-gray-600">
             <li
-              className={`flex items-center mb-3 cursor-pointer ${isActive(
+              className={`hover:text-green-800 flex items-center mb-3 cursor-pointer ${isActive(
                 "/personal/account"
               )}`}
               onClick={() => handleNavigate("/personal/account")}
             >
               <div className="w-6 mr-2">
-                <BiUser />
+                <Image
+                  src={userprofile}
+                  className="w-full aspect-square rounded-full"
+                  alt="User Profile"
+                  width={0}
+                  height={0}
+                />
               </div>
               Account
             </li>
             <li
-              className={`flex items-center mb-3 cursor-pointer ${isActive(
+              className={`hover:text-green-800 flex items-center mb-3 cursor-pointer ${isActive(
                 "/personal/notification"
               )}`}
               onClick={() => handleNavigate("/personal/notification")}
@@ -141,7 +148,7 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
           </ul>
 
           <div className="text-red-600 text-lg font-normal mt-4 cursor-pointer ml-6">
-            Log Out
+            <Link href={"/"}>Log Out</Link>
           </div>
         </div>
       </div>
