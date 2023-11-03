@@ -2,16 +2,10 @@
 import Link from "next/link";
 import styled from "./Header.module.css";
 import { useState } from "react";
+import { links } from "../../../lib/data";
 
 export const Header = () => {
   const [sh, setSh] = useState(false);
-
-  const links = [
-    { title: "Home", link: "/" },
-    { title: "About", link: "/about" },
-    { title: "Contact", link: "/contact" },
-    { title: "Blogs", link: "/feed" },
-  ];
 
   const shoNa = () => {
     setSh((p) => !p);

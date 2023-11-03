@@ -22,7 +22,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: NavbarProps) => {
 
   return (
     <div className="sticky top-0 left-0 bg-white z-10 w-full p-3 border h-[70px]">
-      <div className="w-[90vw] md:max-w-[750px] mx-auto flex justify-between items-center">
+      <div className="w-[90vw] md:max-w-[500px] lg:max-w-[700px] mx-auto flex justify-between items-center">
         <div className="rounded-lg border border-stone-300 w-5/12 items-start">
           <label className="text-zinc-600 text-lg flex justify-center items-center p-2 gap-2">
             <AiOutlineSearch className=" text-zinc-600 w-6 h-6" />

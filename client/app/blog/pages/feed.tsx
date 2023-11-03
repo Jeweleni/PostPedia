@@ -11,8 +11,8 @@ const FeedPage: React.FC = () => {
 
   return (
     <>
-      <div className="p-4 md:p-6 flex justify-between w-full h-[calc(100svh-70px)] overflow-auto no-scrollbar mb-5">
-        <div className="w-[90vw] md:max-w-[750px] mx-auto my-4">
+      <div className="p-4 flex justify-between w-full h-[calc(100svh-100px)] overflow-auto no-scrollbar mb-5">
+        <div className="w-[90vw] md:max-w-[500px] lg:max-w-[700px] mx-auto my-4">
           {createPost ? (
             <CreatePost setCreatePost={setCreatePost} />
           ) : (
@@ -28,7 +28,7 @@ const FeedPage: React.FC = () => {
                 </div>
                 <button
                   onClick={() => setCreatePost(true)}
-                  className="main-btn border-primary min-w-fit bg-primary rounded-lg items-center gap-3 flex text-white text-base font-bold md:p-4 p-3 md:py-3 hover:text-primary hover:border-primary duration-100 mt-4"
+                  className="main-btn border-primary min-w-fit bg-primary rounded-lg items-center gap-3 flex text-white text-base font-bold hover:text-primary hover:border-primary duration-100 mt-4 h-auto p-3"
                 >
                   <FiEdit2 />
                   Post a content

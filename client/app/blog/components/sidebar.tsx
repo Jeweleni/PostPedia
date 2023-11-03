@@ -15,8 +15,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { tags } from "../../../lib/data";
 
-
-
 type Props = {
   isSidebarOpen: boolean;
 };
@@ -63,9 +61,9 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
   return (
     <>
       <div
-        className={`min-h-screen max-w-[300px] p-3 md:block ${
+        className={`min-h-[calc(100svh-2px)] max-w-[300px] p-3 md:block ${
           isSidebarOpen
-            ? "block md:static fixed bg-white z-50 h-full md:h-auto overflow-auto "
+            ? "block lg:static fixed bg-white z-50 h-full md:h-auto overflow-auto "
             : "hidden"
         }`}
       >
