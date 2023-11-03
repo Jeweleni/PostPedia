@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import Login from "./(components)/Login";
+import Register from "./(components)/Register";
 import main from "../../public/assets/auth.jpg";
 import Image from "next/image";
-import Slider from "./components/Slider";
-import Otp from "./components/Otp";
-import Popup from "./components/Popup";
+import Slider from "./(components)/Slider";
+import Otp from "./(components)/Otp";
+import Popup from "./(components)/Popup";
 import { useRouter } from "next/navigation";
 import { NextUIProvider } from "@nextui-org/react";
 import { Selection } from "@nextui-org/react";
