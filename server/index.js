@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
-  secret: 'a16181b75cf44767eb92266a164d2ff32ede2194f80b52c726771e1f7182dc43',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
 }));
