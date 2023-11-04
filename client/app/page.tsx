@@ -8,7 +8,7 @@ import content from "../public/assets/content.svg";
 import Image from "next/image";
 import { Header } from "./(components)/navigation/Header";
 
-export default function Home() {
+function Home() {
   return (
     <>
       <Header />
@@ -245,3 +245,6 @@ export default function Home() {
     </>
   );
 }
+
+
+export default Home;

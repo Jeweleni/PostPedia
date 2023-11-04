@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import React from "react";
 import { useRouter } from "next/navigation";
 import userprofile from "../../../public/assets/userprofile.png";
@@ -14,8 +14,6 @@ import { BiUser } from "react-icons/bi";
 import Link from "next/link";
 import Image from "next/image";
 import { tags } from "../../../lib/data";
-
-
 
 type Props = {
   isSidebarOpen: boolean;
@@ -36,7 +34,7 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
     {
       name: "Feed",
       icon: <MdOutlineDynamicFeed />,
-      route: "/feed",
+      route: "/blog",
     },
     {
       name: "Bookmarks",
@@ -63,14 +61,14 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
   return (
     <>
       <div
-        className={`min-h-screen max-w-[300px] p-3 md:block ${
+        className={`min-h-[calc(100svh-2px)] max-w-[300px] p-3 md:block ${
           isSidebarOpen
-            ? "block md:static fixed bg-white z-50 h-full md:h-auto overflow-auto "
+            ? "block lg:static fixed bg-white z-50 h-full md:h-auto overflow-auto "
             : "hidden"
         }`}
       >
         <Link
-          href="/feed"
+          href="/"
           className="text-primary text-[32px] font-medium mb-2 text-left p-3"
         >
           POSTPEDIA
@@ -119,9 +117,9 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
           <ul className="ml-6 text-gray-600">
             <li
               className={`hover:text-green-800 flex items-center mb-3 cursor-pointer ${isActive(
-                "/personal/account"
+                "/user"
               )}`}
-              onClick={() => handleNavigate("/personal/account")}
+              onClick={() => handleNavigate("/user")}
             >
               <div className="w-6 mr-2">
                 <Image
@@ -136,9 +134,9 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
             </li>
             <li
               className={`hover:text-green-800 flex items-center mb-3 cursor-pointer ${isActive(
-                "/personal/notification"
+                "/notification"
               )}`}
-              onClick={() => handleNavigate("/personal/notification")}
+              onClick={() => handleNavigate("/notification")}
             >
               <div className="w-6 mr-2">
                 <AiOutlineBell />
