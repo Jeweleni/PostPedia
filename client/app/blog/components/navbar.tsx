@@ -6,6 +6,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { BiBell } from "react-icons/bi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
+import Link from "next/link";
 
 type NavbarProps = {
   isSidebarOpen: boolean;
@@ -43,6 +44,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: NavbarProps) => {
         <div className="flex gap-3 md:gap-5 justify-center items-center">
           <BiBell className="w-7 h-7 md:w-10 md:h-10" />
           <div className="w-7 h-7 md:w-10 md:h-10">
+            <Link href={"/user"}>
             <Image
               src={userprofile}
               className="w-full aspect-square rounded-full"
@@ -50,6 +52,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: NavbarProps) => {
               width={0}
               height={0}
             />
+            </Link>
           </div>
           <button
             className="w-7 h-7 md:w-10 md:h-10 md:hidden"

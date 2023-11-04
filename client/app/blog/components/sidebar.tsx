@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import React from "react";
 import { useRouter } from "next/navigation";
 import userprofile from "../../../public/assets/userprofile.png";
@@ -34,7 +34,7 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
     {
       name: "Feed",
       icon: <MdOutlineDynamicFeed />,
-      route: "/feed",
+      route: "/blog",
     },
     {
       name: "Bookmarks",
@@ -68,7 +68,7 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
         }`}
       >
         <Link
-          href="/feed"
+          href="/"
           className="text-primary text-[32px] font-medium mb-2 text-left p-3"
         >
           POSTPEDIA
@@ -117,9 +117,9 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
           <ul className="ml-6 text-gray-600">
             <li
               className={`hover:text-green-800 flex items-center mb-3 cursor-pointer ${isActive(
-                "/personal/account"
+                "/user"
               )}`}
-              onClick={() => handleNavigate("/personal/account")}
+              onClick={() => handleNavigate("/user")}
             >
               <div className="w-6 mr-2">
                 <Image
@@ -134,9 +134,9 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
             </li>
             <li
               className={`hover:text-green-800 flex items-center mb-3 cursor-pointer ${isActive(
-                "/personal/notification"
+                "/notification"
               )}`}
-              onClick={() => handleNavigate("/personal/notification")}
+              onClick={() => handleNavigate("/notification")}
             >
               <div className="w-6 mr-2">
                 <AiOutlineBell />
