@@ -3,10 +3,18 @@ const app = express();
 require("dotenv").config();
 const { readdirSync } = require("fs");
 const cors = require("cors");
+const session = require('express-session');
 
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(session({
+  secret: 'a16181b75cf44767eb92266a164d2ff32ede2194f80b52c726771e1f7182dc43',
+  resave: false,
+  saveUninitialized: true,
+}));
+
 app.use("/uploads", express.static("uploads"));
 
 app.use(function (req, res, next) {
