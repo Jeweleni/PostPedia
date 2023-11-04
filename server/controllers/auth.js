@@ -12,7 +12,7 @@ process.env.GOOGLE_CLIENT_SECRET = "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";
 passport.use(new GoogleStrategy({
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "http://localhost:3000/auth/google/callback"
+        callbackURL: "https://post-pedia-server.onrender.com/auth/google/callback"
     },
     async function(accessToken, refreshToken, profile, done) {
         const slug = await slugify(profile?.displayName);
