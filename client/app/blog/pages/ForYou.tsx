@@ -28,8 +28,8 @@ const ForYouPage: React.FC<ForYouPageProps> = ({ id }) => {
       />
       <hr className="my-5" />
       <PostCard
-        id="1"
-        name="John Doe"
+        id="2"
+        name="Jane Doe"
         role="Author"
         date="Jun 2021"
         title="How to build a website with React, Tailwind CSS, and Next.js"
@@ -46,8 +46,8 @@ const ForYouPage: React.FC<ForYouPageProps> = ({ id }) => {
       />
       <hr className="my-5" />
       <PostCard
-        id="1"
-        name="John Doe"
+        id="3"
+        name="Jenny Doe"
         role="Author"
         date="Jun 2021"
         title="How to build a website with React, Tailwind CSS, and Next.js"

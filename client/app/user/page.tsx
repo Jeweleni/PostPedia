@@ -1,11 +1,10 @@
-'use client'
-import React from 'react';
-import UserProfile from './profile/UserProfile';
-import UserHomePage from './profile/UserHomePage';
-import Navbar from '../blog/components/navbar';
-import Sidebar from '../blog/components/sidebar';
+"use client";
+import React from "react";
+import UserProfile from "./profile/UserProfile";
+import UserHomePage from "./profile/UserHomePage";
+import Navbar from "../blog/components/navbar";
+import Sidebar from "../blog/components/sidebar";
 import withAuth from "../auth/hof/withAuth";
-
 
 const UserProfilePage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
@@ -22,10 +21,9 @@ const UserProfilePage = () => {
             isSidebarOpen={isSidebarOpen}
             setIsSidebarOpen={setIsSidebarOpen}
           />
-      <UserProfile />
-      
-    </div>
-    </div>
+          <UserProfile />
+        </div>
+      </div>
     </div>
   );
 };
