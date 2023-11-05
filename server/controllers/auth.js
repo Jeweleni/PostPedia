@@ -59,13 +59,14 @@ passport.use(new LocalStrategy({
         if(!isMatch) {
             return done(null, false);
         }
-        const token = await user.generateToken();
+        const token = await jwt.signAccessToken(user.id);
         if(!token) {
             return done(null, false);
         }
 
         return done(null, user, token);
     } catch (error) {
+        console.log(error.message);
         return done(error, false);
     }
 }

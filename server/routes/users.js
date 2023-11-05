@@ -13,5 +13,6 @@ router
     .get("/users", authMiddleware,  getAllUsers)
     .put("/users/:slug", authMiddleware, updateUser)
     .get("/users/:slug", authMiddleware, getUser);
+    
 
 module.exports = router;
