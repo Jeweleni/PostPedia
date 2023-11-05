@@ -54,7 +54,7 @@ const Sidebar = ({ isSidebarOpen }: Props) => {
     {
       name: "Analytics",
       icon: <MdOutlineAnalytics />,
-      route: "/analytics",
+      route: "/blog/analytics",
     },
   ];
 
