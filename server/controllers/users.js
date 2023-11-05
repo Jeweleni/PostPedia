@@ -4,22 +4,44 @@ const {prisma} = require('../utils/prismaClient');
 // Controller to get a single user by ID or email
 const getUser = async (req, res) => {
     try {
-        const { email } = req.query;
-        const { id } = req.params;
-        if (email) {
-            const user = await prisma.user.findUnique({
-                where: { email: email },
+        const { slug } = req.params;
+       
+        if (!slug) {
+            return res.status(400).json({
+                message: 'Invalid request',
             });
-            return res.status(200).json(user);
-         } else if (id) {
-            const user = await prisma.user.findUnique({
-                where: { id: parseInt(id) },
-            });
-            return res.status(200).json(user);
-            }
         }
+        const userBySlug = await prisma.user.findUnique({
+            where: { slug: slug },
+        });
+
+        let userById = null;
+        if (!userBySlug) {
+            userById = await prisma.user.findUnique({
+                where: { id: slug },
+            });
+        }
+
+        if (!userBySlug && !userById) {
+            return res.status(400).json({
+                message: 'User not found',
+            });
+        }
+        const user = userBySlug ? userBySlug : userById;
+        const foundUser = {
+            id: user.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            slug: user.slug,
+        };
+
+        return res.status(200).json(foundUser);
+        
+    }      
     catch (error) {
         res.status(500).json({ message: error.message });
+    
     }
 }
 

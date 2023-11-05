@@ -59,13 +59,14 @@ passport.use(new LocalStrategy({
         if(!isMatch) {
             return done(null, false);
         }
-        const token = await user.generateToken();
+        const token = await jwt.signAccessToken(user.id);
         if(!token) {
             return done(null, false);
         }
 
         return done(null, user, token);
     } catch (error) {
+        console.log(error.message);
         return done(error, false);
     }
 }
@@ -73,8 +74,8 @@ passport.use(new LocalStrategy({
 
 
 const slugify = async (string, num = 0) => {
-    const newSlug = num > 0 ? `${string}-${num}` : string;
-    newSlug.toLowerCase().replace(/[^\w ]+/g, '').replace(/[ ]+/g, '-');
+    let  newSlug = string.toLowerCase().replace(/[^\w ]+/g, '').replace(/[ ]+/g, '-');
+    newSlug = num > 0 ? `${newSlug}-` + num : newSlug;
   
     const user = await prisma.user.findUnique({
       where: {
@@ -141,7 +142,7 @@ const register = async (req, res, next) => {
         }
         
 
-        const slug = await slugify(`${firstName.trim()}-${lastName.trim()}`);
+        const slug = await slugify(`${firstName} ${lastName}`);
         const userExists = await prisma.user.findUnique({
         where: {
             email: req.body.email,
@@ -204,6 +205,7 @@ const login = async (req, res, next) => {
             where: {
                 email: email,
             },
+
         });
 
         if(!user) {
@@ -219,7 +221,7 @@ const login = async (req, res, next) => {
             });
         }
 
-        const token = await jwt.signAccessToken(user);
+        const token = await jwt.signAccessToken(user.id);
         if(!token) {
             return res.status(400).json({
                 message: 'Error generating token',
