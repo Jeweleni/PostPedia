@@ -66,7 +66,7 @@ passport.use(new LocalStrategy({
 
         return done(null, user, token);
     } catch (error) {
-        console.log(error.message);
+        
         return done(error, false);
     }
 }
@@ -92,16 +92,24 @@ const slugify = async (string, num = 0) => {
   
   
 passport.serializeUser(function(user, done) {
-    done(null, user.id);
+    done(null, user.email);
 });
 
-passport.deserializeUser(function(id, done) {
+passport.deserializeUser(function(email, done) {
     prisma.user.findUnique({
         where: {
-            id: id,
+            email: email,
         },
     }).then((user) => {
-        done(null, user);
+        const serializedUser = {
+            id: user.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            slug: user.slug,
+            photoUrl: user.profileImage,
+        }
+        done(null, serializedUser);
     }).catch((err) => {
         done(err, null);
     });
@@ -197,57 +205,6 @@ const register = async (req, res, next) => {
     
 }
 
-
-const login = async (req, res, next) => {
-    try {
-        const {email, password} = req.body;
-        const user = await prisma.user.findUnique({
-            where: {
-                email: email,
-            },
-
-        });
-
-        if(!user) {
-            return res.status(400).json({
-                message: 'User is not Registered',
-            });
-        }
-
-        const isMatch = bcrypt.compareSync(password, user.password);
-        if(!isMatch) {
-            return res.status(400).json({
-                message: 'Invalid credentials',
-            });
-        }
-
-        const token = await jwt.signAccessToken(user.id);
-        if(!token) {
-            return res.status(400).json({
-                message: 'Error generating token',
-            });
-        }
-
-        const loggedInUser = {
-            id: user.id,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email,
-            slug: user.slug,
-        }
-
-        return res.status(200).json({
-            message: 'Login successful',
-            user: loggedInUser,
-            token: token,
-        });
-    } catch (error) {
-        return res.status(500).json({
-            message: error.message,
-        });
-    }
-}
-
-module.exports =  {register, passport, login};
+module.exports =  {register, passport};
 
 
