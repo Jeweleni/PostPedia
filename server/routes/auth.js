@@ -14,21 +14,24 @@ router.get('/google/callback',
     passport.authenticate('google', { failureRedirect: '/login' }),
     function(req, res) {
         // Successful authentication, redirect home.
+       
         res.redirect('https://post-pedia-v1.vercel.app/');
     });
-router.get('/logout', (req, res) => {
-    req.logout();
-    res.redirect('https://post-pedia-v1.vercel.app/');
-});
+
+router.get('/logout', function(req, res, next){
+    req.logout(function(err) {
+      if (err) { return next(err); }
+      res.redirect('https://post-pedia-v1.vercel.app');
+    });
+  });
 
 router.get('/user', (req, res) => {
-    if (req.isAuthenticated()) {
+    if (req.user) {
       res.json(req.user); 
     } else {
-      res.json({ message: 'Not authenticated' });
+      res.json({ message: 'Not loggedIn' });
     }
   });
-    
 
 router.post('/register', register);
 router.post('/login', passport.authenticate('local', { successRedirect: 'https://post-pedia-v1.vercel.app', 

@@ -6,7 +6,7 @@ const cors = require("cors");
 const session = require('express-session');
 const passport = require('passport');
 
-app.use(passport.initialize());
+
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -16,6 +16,9 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
 }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/uploads", express.static("uploads"));
 
