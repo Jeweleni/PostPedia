@@ -1,39 +1,35 @@
-'use client'
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { BiUser } from 'react-icons/bi';
 import userprofile from '../../../public/assets/userprofile.png';
 import UserHomePage from './UserHomePage';
 import { FiEdit2 } from 'react-icons/fi';
-import { Button } from '@nextui-org/react';
+import EditUserProfileModal from './Edit-Profile';
+
+interface User {
+  image: string;
+  firstname: string;
+  lastname: string;
+  username: string;
+  followersCount: number;
+  followingCount: number;
+  about: string;
+}
 
 const UserProfile: React.FC = () => {
-  const [isEditingImage, setIsEditingImage] = useState(false);
-  const [isEditingAbout, setIsEditingAbout] = useState(false);
-
-  // Replace the following data with actual user data
-  const [user, setUser] = useState({
-    firstname: 'john',
-    lastname: 'doe',
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [user, setUser] = useState<User>({
+    image: '/userprofile',
+    firstname: 'John',
+    lastname: 'Doe',
     username: 'john_doe',
     followersCount: 1000,
     followingCount: 500,
     about: 'Passionate about technology and blogging!',
   });
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target?.files?.[0];
-    if (file) {
-      // Handle file upload and set it as the user's image
-      // Example: You can use a file input, FileReader, and update the user's image
-    }
-  };
-
-  const handleAboutSave = () => {
-    // Handle saving the edited "about" text
-    // Update the user's about field
-    setIsEditingAbout(false);
-    // Example: You can make an API request to save the updated "about" text
+  const openEditModal = () => {
+    setIsEditModalOpen(true);
   };
 
   return (
@@ -44,25 +40,13 @@ const UserProfile: React.FC = () => {
             src={userprofile}
             className="w-full aspect-square rounded-full"
             alt="User Profile"
-            width={0}
-            height={0}
+            width={100}
+            height={100}
           />
-          {isEditingImage && (
-            <input type="file" accept="image/*" onChange={handleImageChange} />
-          )}
         </div>
         <h1 className="text-2xl font-semibold ml-4">
           {user.username}
-          {isEditingAbout ? (
-            <span className="text-gray-600 ml-2">Editing...</span>
-          ) : (
-            <Button
-              onClick={() => setIsEditingAbout(true)}
-              className="ml-2 hover:underline focus:outline-none"
-            >
-              <FiEdit2 />
-            </Button>
-          )}
+          <FiEdit2 onClick={openEditModal} className="cursor-pointer ml-2" />
         </h1>
       </div>
       <h2 className="p-2 flex text-xl">
@@ -79,29 +63,18 @@ const UserProfile: React.FC = () => {
         </div>
       </div>
       <div>
-        {isEditingAbout ? (
-          <div className="mb-2">
-            <textarea
-              value={user.about}
-              onChange={(e) => setUser({ ...user, about: e.target.value })}
-              className="w-full border rounded p-2"
-            ></textarea>
-          </div>
-        ) : (
-          <p className="text-gray-600 mb-2">{user.about}</p>
-        )}
-        {isEditingAbout ? (
-          <button
-            onClick={handleAboutSave}
-            className="bg-primary text-white px-3 py-1 rounded hover:bg-primary"
-          >
-            Save
-          </button>
-        ) : null}
+        <p className="text-gray-600 mb-2">{user.about}</p>
       </div>
       <div>
-        <UserHomePage />
+       
       </div>
+
+      {isEditModalOpen && (
+        <EditUserProfileModal
+          user={user}
+          closeModal={() => setIsEditModalOpen(false)}
+        />
+      )}
     </div>
   );
 };
