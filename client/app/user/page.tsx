@@ -22,6 +22,7 @@ const UserProfilePage = () => {
             setIsSidebarOpen={setIsSidebarOpen}
           />
           <UserProfile />
+          <UserHomePage />
         </div>
       </div>
     </div>
