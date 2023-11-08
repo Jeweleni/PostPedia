@@ -240,6 +240,11 @@ function Home() {
               </a>
             </div>
           </div>
+          <div className="text-black text-center mt-8">
+            <p className="text-sm">
+              &copy; {new Date().getFullYear()} Postpedia. All rights reserved.
+            </p>
+          </div>
         </footer>
       </div>
     </>
