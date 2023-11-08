@@ -1,5 +1,5 @@
-import heroBackground from "../public/assets/hero-background.png";
-import aboutImg from "../public/assets/about-img.png";
+import heroBackground from "../public/assets/new-hero-section.jpg";
+import aboutImg from "../public/assets/new-about-img.jpg";
 import profilePic from "../public/assets/profile-pic.png";
 import groupPic from "../public/assets/group-pic.png";
 import analytics from "../public/assets/analytics.svg";
@@ -20,7 +20,7 @@ function Home() {
             alt="hero-background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center px-4 sm:px-8 lg:px-12">
+          <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center px-4 sm:px-8 lg:px-12">
             <div className="text-left">
               <h1 className="text-white font-bold font-body text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-12 md:leading-16 lg:leading-20 xl:leading-24">
                 Welcome to PostPedia: A Haven for Text-Based Content
@@ -36,7 +36,7 @@ function Home() {
         {/* ABOUT SECTION */}
         <section className="lg:flex lg:flex-row flex-col items-center justify-between w-[90%] mx-auto py-[90px]">
           <div className="w-full lg:w-[50%]">
-            <h2 className="text-black font-bold font-body text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-8 md:leading-10 lg:leading-12 xl:leading-14 mb-4 md:mb-6">
+            <h2 className="text-black font-bold font-body text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-8 md:leading-10 lg:leading-12 xl:leading-14 mb-6 md:mb-8">
               About PostPedia
             </h2>
             <p className="text-black font-body text-base md:text-lg lg:text-xl xl:text-2xl leading-6 md:leading-7 lg:leading-8 xl:leading-9">
@@ -50,11 +50,11 @@ function Home() {
               understanding, we strive
             </p>
           </div>
-          <div className="lg:w-[40%] w-full mt-5">
+          <div className="lg:w-[40%] w-full mt-5 rounded-10">
             <Image
               src={aboutImg}
               alt="about-postpedia-image"
-              className="rounded-8 mx-auto"
+              className="rounded-10 mx-auto w-full object-cover"
             />
           </div>
         </section>
@@ -239,6 +239,11 @@ function Home() {
                 Engineering blog
               </a>
             </div>
+          </div>
+          <div className="text-black text-center mt-8">
+            <p className="text-sm">
+              &copy; {new Date().getFullYear()} Postpedia. All rights reserved.
+            </p>
           </div>
         </footer>
       </div>
