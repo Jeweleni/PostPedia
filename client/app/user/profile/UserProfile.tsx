@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { BiUser } from 'react-icons/bi';
@@ -33,6 +34,8 @@ const UserProfile: React.FC = () => {
   };
 
   return (
+    <>
+    <div className=''>
     <div className="bg-white p-4 shadow-lg rounded-lg">
       <div className="flex items-center mb-4">
         <div className="w-16 h-16 relative rounded-full overflow-hidden">
@@ -76,6 +79,8 @@ const UserProfile: React.FC = () => {
         />
       )}
     </div>
+    </div>
+    </>
   );
 };
 
