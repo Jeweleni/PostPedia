@@ -21,8 +21,10 @@ const UserProfilePage = () => {
             isSidebarOpen={isSidebarOpen}
             setIsSidebarOpen={setIsSidebarOpen}
           />
+          <div className="p-6 justify-center items-center">
           <UserProfile />
           <UserHomePage />
+          </div>
         </div>
       </div>
     </div>

@@ -5,8 +5,9 @@ import ForYouPage from "../../pages/ForYou";
 const PostsAnalytics: React.FC = () => {
   return (
     <>
-      <div className="p-6 w-fit h-auto flex-col justify-start items-start gap-6 flex">
-        <div className="flex-col justify-start items-start gap-3 flex">
+    <div className="p-6 justify-center items-center">
+      <div className="p-6 w-fit h-auto flex-col justify-start items-start gap-6 flex ">
+        <div className="flex-col justify-start items-start gap-3 flex p-6">
           <div className="flex-col justify-start items-start gap-6 flex">
             <div className="flex-col justify-start items-start gap-3 flex">
               <div className="flex-col justify-start items-start gap-6 flex">
@@ -53,12 +54,13 @@ const PostsAnalytics: React.FC = () => {
               image={""}
             />
           </div>
-        </div>
-        <div className="h-14 px-4 py-2 bg-indigo-600 rounded-lg justify-center items-center gap-2 inline-flex">
+          <div className="h-14 px-4 py-2 bg-indigo-600 rounded-lg justify-center items-center gap-2 inline-flex">
           <div className="text-white text-base font-bold font-['DM Sans'] leading-normal">
             View post activity
           </div>
         </div>
+        </div>
+       
 
         <div className="flex-col justify-center items-start gap-3 flex p-6">
           <div className="text-black text-2xl font-medium font-['DM Sans'] leading-9">
@@ -108,6 +110,7 @@ const PostsAnalytics: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

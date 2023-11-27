@@ -20,12 +20,12 @@ function Home() {
             alt="hero-background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center px-4 sm:px-8 lg:px-12">
+          <div className="absolute inset-0  flex flex-col justify-center items-center px-4 sm:px-8 lg:px-12">
             <div className="text-left">
-              <h1 className="text-white font-bold font-body text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-12 md:leading-16 lg:leading-20 xl:leading-24">
+              <h1 className="text-primary font-bold font-body text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-12 md:leading-16 lg:leading-20 xl:leading-24">
                 Welcome to PostPedia: A Haven for Text-Based Content
               </h1>
-              <p className="text-white font-medium text-base font-body md:text-lg lg:text-xl xl:text-2xl leading-6 md:leading-9 lg:leading-12 xl:leading-14 mt-[24px]">
+              <p className="text-primary font-medium text-base font-body md:text-lg lg:text-xl xl:text-2xl leading-6 md:leading-9 lg:leading-12 xl:leading-14 mt-[24px]">
                 Unleash the Power of Words, Connect with Like-minded Readers and
                 Writers
               </p>
@@ -47,7 +47,7 @@ function Home() {
               community where diversity is celebrated. We encourage
               open-mindedness and respect for all individuals, regardless of
               their backgrounds or beliefs. By promoting dialogue and
-              understanding, we strive
+              understanding, we strive.
             </p>
           </div>
           <div className="lg:w-[40%] w-full mt-5 rounded-10">
