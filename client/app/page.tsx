@@ -47,7 +47,7 @@ function Home() {
               community where diversity is celebrated. We encourage
               open-mindedness and respect for all individuals, regardless of
               their backgrounds or beliefs. By promoting dialogue and
-              understanding, we strive
+              understanding, we strive.
             </p>
           </div>
           <div className="lg:w-[40%] w-full mt-5 rounded-10">
