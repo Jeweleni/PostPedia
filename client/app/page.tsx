@@ -18,9 +18,9 @@ function Home() {
           <Image
             src={heroBackground}
             alt="hero-background"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-50"
           />
-          <div className="absolute inset-0  flex flex-col justify-center items-center px-4 sm:px-8 lg:px-12">
+          <div className="absolute inset-0  flex flex-col justify-center items-center px-4 sm:px-10 lg:px-14">
             <div className="text-left">
               <h1 className="text-primary font-bold font-body text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-12 md:leading-16 lg:leading-20 xl:leading-24">
                 Welcome to PostPedia: A Haven for Text-Based Content
